@@ -2,6 +2,9 @@ import React from 'react';
 import './App.css';
 import Home from './components/Home';
 import TimeSale from './components/TimeSale';
+import RandomSale from './components/RandomSale';
+import OfficialSale from './components/OfficialSale';
+import CheerKR from './components/CheerKR';
 import {BrowserRouter} from 'react-router-dom';
 import {Route, Link} from 'react-router-dom';
 
@@ -21,21 +24,24 @@ function App() {
                         <Link to="/TimeSale" className="glow"> Time </Link>
                     </div>
                     <div className="category">
-                        <Link to="/TimeSale" className="glow"> Random </Link>
+                        <Link to="/RandomSale" className="glow"> Random </Link>
                     </div>
                     <div className="category">
-                        <Link to="/TimeSale" className="glow"> Official </Link>
+                        <Link to="/OfficialSale" className="glow"> Official </Link>
                     </div>
                     <div className="category">
-                        <Link to="/TimeSale" className="glow"> Support </Link>
+                        <Link to="/CheerKR" className="glow"> Support </Link>
                     </div>                
                 </div>
             </div>
         </div>
 
-        <Route path="/" component={Home} />
+        <Route path="/" exact={true} component={Home} />
         <Route path="/TimeSale" component={TimeSale} />
-        
+        <Route path="/RandomSale" component={RandomSale} />
+        <Route path="/OfficialSale" component={OfficialSale} />
+        <Route path="/CheerKR" component={CheerKR} />
+
         <footer className="footer">subin</footer>
     </BrowserRouter>
   );

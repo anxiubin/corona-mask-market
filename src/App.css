@@ -16,10 +16,8 @@ body {
 
 
 a:link,
-:visited,
-:active {
+:visited {
     text-decoration: none;
-    color: #000;
 }
 
 #fixed-bar-wrap {
@@ -79,6 +77,11 @@ a:link,
     margin-left: 20px;
 }
 
+.category a:visited {
+    color: #0053bf;
+    opacity: 0.5;
+}
+
 .glow {
     color: #0053bf;
     opacity: 0.5;
@@ -114,8 +117,9 @@ a:link,
     background-size: 500px 500px;
 }
 
-.home-img-section h1 {
+h1 {
     font-size: 40px;
+    display: inline-block;
     margin: 0 auto;
 }
 
@@ -343,17 +347,37 @@ a:link,
 
 
 
+/** TIMESALE COMPONENT **/
 
 
+.timesale-section {
+    position: relative;
+    margin: 60px auto 0;
+    padding-top: 150px;
+    background-color: #193b84;
+    color: #fff;
+    text-align: center;
+    height: 400px;
+}
 
+.timesale-section-text {
+    display: inline-block;
+    margin-left: 5%;
+    transform: translateY(-7px);
+}
 
+.mask-section {
+    align-items: center;
+    display: flex;
+}
 
 .mask-wrap {
     align-items: center;
     border-radius: 8px;
     border: 1px solid #e9ecef;
     width: 70%;
-    margin: 30px auto;
+    margin: 30px 5% 30px 10%;
+    display: inline-flex;
 }
 
 .mask-wrap:hover {
@@ -364,10 +388,6 @@ a:link,
     transform: translateY(-1.5px);
 }
 
-.mask-link {
-    width: 100%;
-}
-
 .mask-img {
     display: inline-block;
     width: 200px;
@@ -375,4 +395,50 @@ a:link,
     margin-right: 30px;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
+    background-image: url('https://shop-phinf.pstatic.net/20200229_15/1582909219683E9ts9_JPEG/20272608201821413_82454582.jpg');
+    background-repeat: no-repeat;
+    background-size: 200px 200px;
+}
+
+.item-details {
+    display: inline-block;
+}
+
+.item-price {
+    color: #0053bf;
+}
+
+.item-time {
+    color: #494949;
+}
+
+.item-timer {
+    align-items: center;
+    border-radius: 8px;
+    width: 30%;
+    margin: 30px 10% 30px 0;
+    display: inline-flex;
+    color: white;
+    background-color: red;
+}
+
+
+.item-selling {
+    align-items: center;
+    border-radius: 8px;
+    width: 30%;
+    margin: 30px 10% 30px 0;
+    display: inline-flex;
+    color: white;
+    background-color: #19c100;
+}
+
+.item-soldout {
+    align-items: center;
+    border-radius: 8px;
+    width: 30%;
+    margin: 30px 10% 30px 0;
+    display: inline-flex;
+    color: white;
+    background-color: #3d3d3d;
 }

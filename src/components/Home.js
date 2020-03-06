@@ -1,5 +1,4 @@
-import React from 'react';
-import {Spring} from 'react-spring/renderprops'
+import React, {useState, useEffect} from 'react';
 import LocalInfections from './LocalInfections';
 
 function Home() {
@@ -9,6 +8,43 @@ function Home() {
   const infectionTrue = 6593;
   const infectionDead = 43;
   const infectionFalse = 108;
+
+  const [trueNum, setTrueNum] = useState(0);
+  const [deadNum, setDeadNum] = useState(0);
+  const [falseNum, setFalseNum] = useState(0);
+
+
+
+  //count up for infectionTrue
+  useEffect(() => {
+    const interval = setInterval(() => {
+        if(trueNum < infectionTrue) {
+            setTrueNum(num => num + infectionTrue / 100);
+        }
+    }, 10);
+    return () => clearInterval(interval);
+  }, [trueNum]);
+
+  //count up for infectionDead
+  useEffect(() => {
+    const interval = setInterval(() => {
+        if(deadNum < infectionDead) {
+            setDeadNum(num => num + 1);
+        }
+    }, 10);
+    return () => clearInterval(interval);
+  }, [deadNum]);
+
+  //count up for infectionFalse
+  useEffect(() => {
+    const interval = setInterval(() => {
+        if(falseNum < infectionFalse) {
+            setFalseNum(num => num + 1);
+        }
+    }, 10);
+    return () => clearInterval(interval);
+  }, [falseNum]);
+
 
   return (
     <div>
@@ -24,31 +60,19 @@ function Home() {
                 <div className="infection-true">
                     확진
                     <div className="infection-true-num">
-                        <Spring
-                        from={{ number: 0 }}
-                        to={{ number: infectionTrue }}>
-                        {props => <div>{Math.round(props.number)}</div>}
-                        </Spring>
+                        {Math.round(trueNum)}
                     </div>
                 </div>
                 <div className="infection-dead">
                     사망
                     <div className="infection-dead-num">
-                        <Spring
-                        from={{ number: 0 }}
-                        to={{ number: infectionDead }}>
-                        {props => <div>{Math.round(props.number)}</div>}
-                        </Spring>
+                        {deadNum}
                     </div>
                 </div>
                 <div className="infection-false">
                     격리해제
                     <div className="infection-false-num">
-                        <Spring
-                        from={{ number: 0 }}
-                        to={{ number: infectionFalse }}>
-                        {props => <div>{Math.round(props.number)}</div>}
-                        </Spring>
+                        {falseNum}
                     </div>
                 </div>
             </div>
