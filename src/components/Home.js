@@ -1,7 +1,14 @@
 import React from 'react';
+import {Spring} from 'react-spring/renderprops'
 import LocalInfections from './LocalInfections';
 
 function Home() {
+
+    //추후 크롤링해서 데이터 가져온 것 state로 관리 (컨텍스트API 활용)
+
+  const infectionTrue = 6593;
+  const infectionDead = 43;
+  const infectionFalse = 108;
 
   return (
     <div>
@@ -17,19 +24,31 @@ function Home() {
                 <div className="infection-true">
                     확진
                     <div className="infection-true-num">
-                        4500
+                        <Spring
+                        from={{ number: 0 }}
+                        to={{ number: infectionTrue }}>
+                        {props => <div>{Math.round(props.number)}</div>}
+                        </Spring>
                     </div>
                 </div>
                 <div className="infection-dead">
                     사망
                     <div className="infection-dead-num">
-                        30
+                        <Spring
+                        from={{ number: 0 }}
+                        to={{ number: infectionDead }}>
+                        {props => <div>{Math.round(props.number)}</div>}
+                        </Spring>
                     </div>
                 </div>
                 <div className="infection-false">
                     격리해제
                     <div className="infection-false-num">
-                        12000
+                        <Spring
+                        from={{ number: 0 }}
+                        to={{ number: infectionFalse }}>
+                        {props => <div>{Math.round(props.number)}</div>}
+                        </Spring>
                     </div>
                 </div>
             </div>
