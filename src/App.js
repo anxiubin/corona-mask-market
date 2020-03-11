@@ -36,7 +36,7 @@ function App() {
             </div>
         </div>
 
-        <Route path="/" exact={true} component={Home} />
+        <Route path="/corona-mask-market" exact={true} component={Home} />
         <Route path="/TimeSale" component={TimeSale} />
         <Route path="/RandomSale" component={RandomSale} />
         <Route path="/OfficialSale" component={OfficialSale} />
