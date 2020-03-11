@@ -14,7 +14,7 @@ function App() {
         <div id="fixed-bar">
             <div id="fixed-bar-wrap">
                 <div id="logo-wrap">
-                    <Link to="/" id="home-link">
+                    <Link to="/corona-mask-market" id="home-link">
                         <img className="logo-img" alt="코로나마스크마켓" src="https://image.flaticon.com/icons/png/128/1033/1033165.png" />
                         <div className="logo-text">Corona Mask Market</div>
                     </Link>
