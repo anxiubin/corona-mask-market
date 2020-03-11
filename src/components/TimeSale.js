@@ -9,7 +9,7 @@ function TimeSale() {
       price : 14900,
       name : '마마스크 미마 미세먼지 황사 보건용마스크 10개입(KF94)',
       time : 9,
-      date : '2020-03-07:03:01:00+0900'
+      date : '2020-03-07:13:58:00+0900'
   }
 
   let itemText = '판매시작'
@@ -70,6 +70,8 @@ function TimeSale() {
             </div>
         </section>
         <section className="mask-section">
+
+            {/* 마스크 리스트 배열에 담아서 관리 후 map으로 돌아가며 아이템 생성*/}
             <div className="mask-wrap">
                 <div className="mask-img" title ="mask"></div>
                 <div className="item-details">
