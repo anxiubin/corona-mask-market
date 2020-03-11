@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/corona-mask-market/static/css/main.ec371559.chunk.css",
+    "main.js": "/corona-mask-market/static/js/main.6c3f6feb.chunk.js",
+    "main.js.map": "/corona-mask-market/static/js/main.6c3f6feb.chunk.js.map",
+    "runtime-main.js": "/corona-mask-market/static/js/runtime-main.86c6304b.js",
+    "runtime-main.js.map": "/corona-mask-market/static/js/runtime-main.86c6304b.js.map",
+    "static/js/2.623452d2.chunk.js": "/corona-mask-market/static/js/2.623452d2.chunk.js",
+    "static/js/2.623452d2.chunk.js.map": "/corona-mask-market/static/js/2.623452d2.chunk.js.map",
+    "index.html": "/corona-mask-market/index.html",
+    "precache-manifest.b6d4bba320f860d6fba002d4d535b2f2.js": "/corona-mask-market/precache-manifest.b6d4bba320f860d6fba002d4d535b2f2.js",
+    "service-worker.js": "/corona-mask-market/service-worker.js",
+    "static/css/main.ec371559.chunk.css.map": "/corona-mask-market/static/css/main.ec371559.chunk.css.map",
+    "static/js/2.623452d2.chunk.js.LICENSE.txt": "/corona-mask-market/static/js/2.623452d2.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/corona-mask-market/static/media/korea-map.b22eef93.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.86c6304b.js",
+    "static/js/2.623452d2.chunk.js",
+    "static/css/main.ec371559.chunk.css",
+    "static/js/main.6c3f6feb.chunk.js"
+  ]
+}
