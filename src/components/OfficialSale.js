@@ -53,12 +53,12 @@ function OfficialSale() {
             infowindow.close();
         };
     }
-    
+
   return (
     <React.Fragment>
     
-      <div id="map" style={{width:"100%", height:"350px"}}></div>
-
+        <div id="map" style={{width:"100%", height:"350px"}}></div>
+        <div>test</div>
     </React.Fragment>
   );
 }

@@ -14,33 +14,32 @@ function App() {
         <div id="fixed-bar">
             <div id="fixed-bar-wrap">
                 <div id="logo-wrap">
-                    <Link to="/corona-mask-market" id="home-link">
+                    <Link to="/corona-mask-market/" id="home-link">
                         <img className="logo-img" alt="코로나마스크마켓" src="https://image.flaticon.com/icons/png/128/1033/1033165.png" />
                         <div className="logo-text">Corona Mask Market</div>
                     </Link>
                 </div>
                 <div id="category-wrap">
                     <div className="category">
-                        <Link to="/TimeSale" className="glow"> Time </Link>
+                        <Link to="/corona-mask-market/TimeSale" className="glow"> Time </Link>
                     </div>
                     <div className="category">
-                        <Link to="/RandomSale" className="glow"> Random </Link>
+                        <Link to="/corona-mask-market/RandomSale" className="glow"> Random </Link>
                     </div>
                     <div className="category">
-                        <Link to="/OfficialSale" className="glow"> Official </Link>
+                        <Link to="/corona-mask-market/OfficialSale" className="glow"> Official </Link>
                     </div>
                     <div className="category">
-                        <Link to="/CheerKR" className="glow"> Support </Link>
+                        <Link to="/corona-mask-market/CheerKR" className="glow"> Support </Link>
                     </div>                
                 </div>
             </div>
         </div>
-
-        <Route path="/corona-mask-market" exact={true} component={Home} />
-        <Route path="/TimeSale" component={TimeSale} />
-        <Route path="/RandomSale" component={RandomSale} />
-        <Route path="/OfficialSale" component={OfficialSale} />
-        <Route path="/CheerKR" component={CheerKR} />
+        <Route path="/corona-mask-market/" exact={true} component={Home} />
+        <Route path="/corona-mask-market/TimeSale" component={TimeSale} />
+        <Route path="/corona-mask-market/RandomSale" component={RandomSale} />
+        <Route path="/corona-mask-market/OfficialSale" component={OfficialSale} />
+        <Route path="/corona-mask-market/CheerKR" component={CheerKR} />
 
         <footer className="footer">subin</footer>
     </BrowserRouter>
