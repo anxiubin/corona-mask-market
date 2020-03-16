@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
+
 function OfficialSale() {
 
     const [kakao] = useState(window.kakao);
-
-    //위치 불러오기
 
     const [location, setLocation] = useState({
         lat: 0,
@@ -52,7 +51,6 @@ function OfficialSale() {
     mapOption = {
         center: new kakao.maps.LatLng(lat, lng), 
         level: 3, 
-        mapTypeId : kakao.maps.MapTypeId.ROADMAP 
     }; 
 
     var map = new kakao.maps.Map(mapContainer, mapOption); 
@@ -155,4 +153,6 @@ function OfficialSale() {
     </React.Fragment>
   );
 }
+
+
 export default OfficialSale;
