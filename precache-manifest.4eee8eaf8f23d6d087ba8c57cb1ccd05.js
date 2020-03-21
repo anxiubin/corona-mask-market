@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e653050ee786e92db03b92aa69160c44",
+    "revision": "5ca4c7179ace9d24e2678977c8d86648",
     "url": "/corona-mask-market/index.html"
   },
   {
-    "revision": "337ebd316cb05b7b2200",
-    "url": "/corona-mask-market/static/css/main.f8548cb7.chunk.css"
+    "revision": "7db27186769f2fe094f5",
+    "url": "/corona-mask-market/static/css/main.097f6134.chunk.css"
   },
   {
     "revision": "48ff416c4331157c2475",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/corona-mask-market/static/js/2.5edc420e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "337ebd316cb05b7b2200",
-    "url": "/corona-mask-market/static/js/main.6032c285.chunk.js"
+    "revision": "7db27186769f2fe094f5",
+    "url": "/corona-mask-market/static/js/main.d01d0268.chunk.js"
   },
   {
     "revision": "ca03cf6ba118092bf361",
