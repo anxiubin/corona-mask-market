@@ -111,16 +111,15 @@ a:link,
 
 .home-img-section {
     position: relative;
-    margin: 60px auto 0;
-    padding-top: 150px;
+    padding-top: 100px;
     background-color: #193b84;
     color: #fff;
     text-align: center;
-    height: 400px;
+    height: 200px;
     background-image: url(./home-img.png);
     background-repeat: no-repeat;
     background-position: right;
-    background-size: 500px 500px;
+    background-size: 200px 200px;
 }
 
 h1 {
@@ -358,12 +357,11 @@ h1 {
 
 .timesale-section {
     position: relative;
-    margin: 60px auto 0;
-    padding-top: 150px;
+    padding-top: 100px;
     background-color: #193b84;
     color: #fff;
     text-align: center;
-    height: 400px;
+    height: 200px;
 }
 
 .timesale-section-text {
@@ -504,7 +502,6 @@ h1 {
     background-color: #262626;
     color: #fff;
     border-radius: 3px;
-    z-index: 9999;
     position: absolute;
     transform: translate(-100%, -120%);
     transition: opacity 0.2s;

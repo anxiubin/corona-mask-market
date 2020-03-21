@@ -6,71 +6,62 @@ import axios from 'axios';
 function OfficialSale() {
 
     const [kakao] = useState(window.kakao);
-    const [location, setLocation] = useState({
+    const [location, setLocation] = useState({ //useReducer 사용
         lat: null,
         lng: null,
     })
+    
     const { lat, lng } = location;
-    const [map, setMap] = useState(null)
+    const [map, setMap] = useState(null);
 
-    //component did mount
     useEffect(() => {
 
         if(!lat && !lng) {
-
-        //내 위치 불러오기
-        const getLocation = () => {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    position => {
-                        const { coords } = position
-                        const { latitude, longitude } = coords
-                        setLocation({
-                            ...location,
-                            lat: latitude,
-                            lng: longitude
-                        })
-                    },
-                    () => {
-                        console.log("내 위치를 불러올 수 없습니다.")
-                    }
-                )
-            } else {
-                console.log("위치를 불러올 수 없습니다.")
+            //내 위치 불러오기
+            const getLocation = (calback) => {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        position => {
+                            const { coords } = position
+                            const { latitude, longitude } = coords
+                            setLocation({
+                                ...location,
+                                lat: latitude,
+                                lng: longitude
+                            })
+                        },
+                        () => {
+                            console.log("내 위치를 불러올 수 없습니다.")
+                        }
+                    )
+                } else {
+                    console.log("위치를 불러올 수 없습니다.")
+                }
             }
+            getLocation();
         }
 
-        getLocation();
-        }
-
-        //지도 생성하기
-        if(lat && lng) {
-
-            var mapContainer = document.getElementById('kakao-map'),
+        if(!(!!map) && lat && lng) {
+            const mapContainer = document.getElementById('kakao-map'),
             mapOption = {
                 center: new kakao.maps.LatLng(lat, lng),
                 level: 3,
             };
 
-            var map = new kakao.maps.Map(mapContainer, mapOption);
+            // var map = new kakao.maps.Map(mapContainer, mapOption);
+            const mapNew = new kakao.maps.Map(mapContainer, mapOption);
 
             const moveLatLng = new kakao.maps.LatLng(lat, lng);
-            map.panTo(moveLatLng);
+            mapNew.panTo(moveLatLng);
 
-            var zoomControl = new kakao.maps.ZoomControl();
-            map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
-
-            setMap(map);
-            console.log('create map')
-
+            const zoomControl = new kakao.maps.ZoomControl();
+            mapNew.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+            setMap(mapNew);
         }
 
-    },[lat, lng])
-
+    }, [lat, lng, map])
 
     const mounted = useRef(false);
-
-
 
     //마우스 드래그로 지도 이동할 때
     useEffect(() => {
@@ -80,9 +71,9 @@ function OfficialSale() {
         } else {
             kakao.maps.event.addListener(map, 'dragend', function() {      
                 var level = map.getLevel();
+                console.log(level);
                 map.setLevel(level); 
-                        
-                // 지도 중심좌표를 얻어옵니다 
+
                 var latlng = map.getCenter(); 
 
                 setLocation({
@@ -93,17 +84,11 @@ function OfficialSale() {
 
             });
 
-            // 확대축소한 상태에서 드래그했을 때 map level유지
-            // kakao.maps.event.addListener(map, 'zoom_changed', function() {        
-            //     var level = map.getLevel();
-            //     map.setLevel(level);
-            // });
-
             setMap(map);
     
         }
 
-      }, [map])
+      }, [map]);
 
 
     //지도에 약국들 출력
@@ -186,8 +171,11 @@ function OfficialSale() {
                                     position: position,
                                     content: content   
                                 });
+
     
                                 customOverlay.setMap(map);    
+
+                                //label detail 2개 커스텀 오버레이 컴포넌트 나누기
                             });
                         }
                     }   
@@ -197,7 +185,7 @@ function OfficialSale() {
 
         }
         
-    },[map])    
+    },[map,lat,lng])    
     
 
     return (
