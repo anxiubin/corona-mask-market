@@ -1,9 +1,24 @@
 import React, {useState, useEffect} from 'react';
 import LocalInfections from './LocalInfections';
+import axios from 'axios';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+const COVID_APIKEY = process.env.REACT_APP_COVID19_API_KEY;
 
 function Home() {
-
+    
     //추후 크롤링해서 데이터 가져온 것 state로 관리 (컨텍스트API 활용)
+
+    useEffect( () => {
+        console.log('useEffect start');
+        getCovid19Data().then(response => {
+            console.log('state code', response);
+        }).catch(e => console.log(e));
+    },[]);
+
+    
 
   const infectionTrue = 6593;
   const infectionDead = 43;
@@ -84,4 +99,19 @@ function Home() {
     </div>
   );
 }
+
+function getCovid19Data() {
+    return axios({
+        method: "GET",
+        url: "https://cors-anywhere.herokuapp.com/https://api.dropper.tech/covid19/status/korea?locale=synthesize",
+        headers: {
+            'APIKey': COVID_APIKEY,
+        },
+    });    
+}
+
+// function printCovid19Data() {
+
+// }
+
 export default Home;
