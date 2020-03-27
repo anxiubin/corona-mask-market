@@ -2,7 +2,6 @@
     "name": "corona-mask-market",
     "version": "0.1.0",
     "private": true,
-
     "dependencies": {
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
@@ -10,6 +9,7 @@
         "axios": "^0.19.2",
         "cors": "^2.8.5",
         "dotenv": "^8.2.0",
+        "immer": "^6.0.2",
         "node-sass": "^4.13.1",
         "react": "^16.13.0",
         "react-dom": "^16.13.0",

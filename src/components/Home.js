@@ -2,12 +2,6 @@ import React, {useState, useEffect} from 'react';
 import LocalInfections from './LocalInfections';
 import { useDataState } from '../DataContext';
 
-import axios from 'axios';
-import dotenv from 'dotenv';
-dotenv.config();
-
-const COVID_APIKEY = process.env.REACT_APP_COVID19_API_KEY;
-
 function Home() {
 
     const data = useDataState();

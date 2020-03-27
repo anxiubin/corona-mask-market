@@ -137,27 +137,46 @@ h1 {
 }
 
 .infection-data {
-    margin-right: 3%;
+    margin-bottom: 100%;
+}
+
+.updatetime {
+    color: gray;
+    font-size: 15px;
 }
 
 .infection-true {
+    margin-top: 15%;
     color: red;
+    font-size: 20px;
+}
+
+.infection-true:after {
+    content: "";
+    display: block;
+    width: 60px;
+    border-bottom: 2px solid #bcbcbc;
+    margin: 15px auto;
 }
 
 .infection-dead {
     color: black;
-    margin-top: 25%;
-    border-top-style: solid;
-    border-color: #CDCCCC;
-    padding-top: 25%;
+    margin-top: 10%;
+    font-size: 20px;
+}
+
+.infection-dead:after {
+    content: "";
+    display: block;
+    width: 60px;
+    border-bottom: 2px solid #bcbcbc;
+    margin: 15px auto;
 }
 
 .infection-false {
     color: green;
-    margin-top: 25%;
-    padding-top: 25%;
-    border-top-style: solid;
-    border-color: #CDCCCC;
+    margin-top: 10%;
+    font-size: 20px;
 }
 
 
@@ -182,8 +201,10 @@ h1 {
     display: inline-block;
     border-radius: 50%;
     background-color: white;
-    color: #7f7f7f;
+    color: #494949;
     box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: center;
 }
 
 .city-common:hover {
@@ -192,6 +213,11 @@ h1 {
     -webkit-box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
     transform: translateY(-1.5px);
+    background-color: #c4ebff;
+}
+
+.cityname {
+    position: absolute;
 }
 
 .num {
@@ -199,42 +225,45 @@ h1 {
     font-family: 'Lato', sans-serif;
     position: absolute;
     top: 20px;
-    left: 20px;
 }
 
-.seoul {
-    top: 140px;
-    left: 150px;
-    width: 70px;
-    height: 70px;
+.quarantine {
+    top: 20px;
+    left: 80px;
+    width: 65px;
+    height: 65px;
     line-height: 50px;
 }
 
-.gyeonggi {
-    top: 55px;
-    left: 150px;
-    width: 80px;
-    height: 80px;
-    line-height: 60px;
+.seoul {
+    top: 135px;
+    left: 145px;
+    width: 85px;
+    height: 85px;
+    line-height: 65px;
 }
 
-.gyeonggi div {
-    left: 25px !important;
+.gyeonggi {
+    top: 43px;
+    left: 150px;
+    width: 90px;
+    height: 90px;
+    line-height: 70px;
 }
 
 .incheon {
-    top: 130px;
-    left: 100px;
-    width: 50px;
-    height: 50px;
-    line-height: 30px;
+    top: 110px;
+    left: 90px;
+    width: 55px;
+    height: 55px;
+    line-height: 40px;
 }
 
 .gangwon {
     top: 55px;
     left: 250px;
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     line-height: 40px;
 }
 
@@ -249,24 +278,24 @@ h1 {
 .chungbuk {
     top: 170px;
     left: 240px;
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     line-height: 40px;
 }
 
 .sejong {
     top: 200px;
     left: 190px;
-    width: 50px;
-    height: 50px;
-    line-height: 30px;
+    width: 55px;
+    height: 55px;
+    line-height: 40px;
 }
 
 .daejeon {
     top: 250px;
     left: 195px;
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     line-height: 40px;
 }
 
@@ -280,50 +309,42 @@ h1 {
 
 .jeonnam {
     top: 440px;
-    left: 120px;
+    left: 110px;
     width: 50px;
     height: 50px;
     line-height: 30px;
 }
 
 .gwangju {
-    top: 375px;
+    top: 380px;
     left: 130px;
     width: 55px;
     height: 55px;
     line-height: 30px;
 }
 
-.kyeongbuk {
+.gyeongbuk {
     top: 190px;
-    left: 330px;
-    width: 90px;
-    height: 90px;
-    line-height: 70px;
-}
-
-.kyeongbuk div {
-    left: 30px !important;
-}
-
-.kyeongnam {
-    top: 370px;
-    left: 240px;
-    width: 65px;
-    height: 68px;
-    line-height: 50px;
-}
-
-.daegu {
-    top: 270px;
-    left: 270px;
+    left: 340px;
     width: 100px;
     height: 100px;
     line-height: 80px;
 }
 
-.daegu div {
-    left: 30px !important;
+.gyeongnam {
+    top: 380px;
+    left: 240px;
+    width: 65px;
+    height: 65px;
+    line-height: 50px;
+}
+
+.daegu {
+    top: 255px;
+    left: 245px;
+    width: 120px;
+    height: 120px;
+    line-height: 100px;
 }
 
 .ulsan {
