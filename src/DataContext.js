@@ -14,91 +14,109 @@ const cities = [
         id: 'seoul',
         idKR: '서울',
         num: 0,
+        url: 'http://www.seoul.go.kr/coronaV/coronaStatus.do'
     },
     {
         id: 'gyeonggi',
         idKR: '경기',
         num: 0,
+        url: 'https://www.gg.go.kr/bbs/boardView.do?bsIdx=464&bIdx=2296956&menuId=1535'
     },
     {
         id: 'incheon',
         idKR: '인천',
         num: 0,
+        url: 'https://www.incheon.go.kr/'
     },
     {
         id: 'gangwon',
         idKR: '강원',
         num: 0,
+        url: 'http://www.provin.gangwon.kr/'
     },
     {
         id: 'chungnam',
         idKR: '충남',
         num: 0,
+        url: 'http://www.chungnam.go.kr/coronaStatus.do'
     },
     {
         id: 'chungbuk',
         idKR: '충북',
         num: 0,
+        url: 'http://www.chungbuk.go.kr/'
     },
     {
         id: 'sejong',
         idKR: '세종',
         num: 0,
+        url: 'https://www.sejong.go.kr/life/sub05_0704.do'
     },
     {
         id: 'daejeon',
         idKR: '대전',
         num: 0,
+        url: 'https://www.daejeon.go.kr/corona19/index.do'
     },
     {
         id: 'jeonbuk',
         idKR: '전북',
         num: 0,
+        url: 'http://www.jeonbuk.go.kr/'
     },
     {
         id: 'jeonnam',
         idKR: '전남',
         num: 0,
+        url: 'https://www.jeonnam.go.kr/coronaMainPage.do'
     },
     {
         id: 'gwangju',
         idKR: '광주',
         num: 0,
+        url: 'https://www.gwangju.go.kr/'
     },
     {
         id: 'gyeongbuk',
         idKR: '경북',
         num: 0,
+        url: 'http://www.gb.go.kr/Main/index.html'
     },
     {
         id: 'gyeongnam',
         idKR: '경남',
         num: 0,
+        url: 'http://www.gyeongnam.go.kr/corona.html'
     },
     {
         id: 'daegu',
         idKR: '대구',
         num: 0,
+        url: 'http://www.daegu.go.kr/'
     },
     {
         id: 'ulsan',
         idKR: '울산',
         num: 0,
+        url: 'http://www.ulsan.go.kr/corona.jsp'
     },
     {
         id: 'busan',
         idKR: '부산',
         num: 0,
+        url: 'http://www.busan.go.kr/corona19/index'
     },
     {
         id: 'jeju',
         idKR: '제주',
         num: 0,
+        url: 'https://jeju.go.kr/covid19.jsp'
     },
     {
         id: 'quarantine',
         idKR: '검역',
         num: 0,
+        url: 'http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=13&ncvContSeq=&contSeq=&board_id=&gubun='
     },
 ];
 
@@ -175,7 +193,10 @@ export function DataProvider({children}){
             }).catch(e => console.error(e));
         }, 21600000);
 
-        return () => clearInterval(dataInterval);
+        return () => {
+            clearInterval(dataInterval);
+            console.log('unmount');
+        }
     },[]);
 
 
