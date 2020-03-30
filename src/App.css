@@ -26,17 +26,11 @@ a:link,
     text-decoration: none;
 }
 
-#fixed-bar-wrap {
-    width: 1024px;
-    margin: 0 auto;
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
 #fixed-bar {
     background-color: #fff;
     position: fixed;
+    width: 100%;
+    margin: 0 auto;
     top: 0;
     left: 0;
     right: 0;
@@ -45,6 +39,17 @@ a:link,
     -webkit-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
 }
+
+#fixed-bar-wrap {
+    max-width: 1024px;
+    margin: 0 auto;
+    justify-content: space-between;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+
 
 #logo-wrap {
     margin: 10px;
@@ -72,8 +77,6 @@ a:link,
 
 #category-wrap {
     display: inline-block;
-    margin-left: 38%;
-    margin-right: 10px;
 }
 
 .category {
@@ -383,6 +386,7 @@ h1 {
     color: #fff;
     text-align: center;
     height: 200px;
+    margin-bottom: 20px;
 }
 
 .timesale-section-text {
@@ -400,8 +404,8 @@ h1 {
     align-items: center;
     border-radius: 8px;
     border: 1px solid #e9ecef;
-    width: 70%;
-    margin: 30px 5% 30px 10%;
+    width: 60%;
+    margin: 20px auto;
     display: inline-flex;
 }
 
@@ -434,7 +438,18 @@ h1 {
 }
 
 .item-time {
-    color: #494949;
+    color: #d30000;
+    align-items: center;
+    display: flex;
+}
+
+.clock {
+    margin-top: 3px;
+    margin-right: 5px;
+}
+
+.item-sub {
+    color: #7a7a7a;
 }
 
 .item-timer {
