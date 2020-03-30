@@ -118,7 +118,6 @@ function OfficialSale() {
     
                                 // 커스텀 오버레이에 표시할 내용    
                                 var content = document.createElement('div');
-                                content.classList.add('store-label');
 
                                 //재고 상태[100개 이상(녹색): 'plenty' / 30개 이상 100개미만(노랑색): 'some' / 2개 이상 30개 미만(빨강색): 'few' / 1개 이하(회색): 'empty' / 판매중지: 'break']
 
@@ -152,16 +151,14 @@ function OfficialSale() {
                                   }
 
                                 content.style.backgroundColor = stockColor;
-
+                                content.style.borderRadius = '3px';
 
                                 content.innerHTML = `
+                                <div class="store-label">${stockText}</div>
                                 <div class="store-details">
                                     <div style="padding-bottom:3px"> ${name}</div>
                                     <div class="text-long"> 업데이트: ${created_at}</div>
                                     <div class="text-long"> 입고시간: ${stock_at}</div>
-                                </div>
-                                <div>
-                                ${stockText}
                                 </div>
                                 `
     
@@ -169,7 +166,7 @@ function OfficialSale() {
     
                                 var customOverlay = new kakao.maps.CustomOverlay({
                                     position: position,
-                                    content: content   
+                                    content: content,
                                 });
 
     

@@ -379,7 +379,7 @@ h1 {
 /** TIMESALE COMPONENT **/
 
 
-.timesale-section {
+.head-section {
     position: relative;
     padding-top: 100px;
     background-color: #193b84;
@@ -389,7 +389,7 @@ h1 {
     margin-bottom: 20px;
 }
 
-.timesale-section-text {
+.head-section-text {
     display: inline-block;
     margin-left: 5%;
     transform: translateY(-7px);
@@ -521,13 +521,14 @@ h1 {
     font-weight: 500;
     color: #fff;
     text-align: center;
-    border-radius: 3px;
     position: relative;
     font-family: 'Noto Sans KR', sans-serif;
 }
 
-.store-label:hover .store-details {
-    opacity: 1;
+
+
+.store-label:hover+.store-details {
+    opacity: 1 !important;
 }
 
 .store-details {
@@ -539,9 +540,10 @@ h1 {
     color: #fff;
     border-radius: 3px;
     position: absolute;
-    transform: translate(-100%, -120%);
+    transform: translate(-120%, -110%);
     transition: opacity 0.2s;
     opacity: 0;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 .text-long {
