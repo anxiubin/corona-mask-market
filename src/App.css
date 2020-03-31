@@ -555,15 +555,13 @@ h1 {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-25%, -25%);
+    transform: translate(-50%, -50%);
     color: #000;
     max-width: 600px;
     min-height: 250px;
     z-index: 9999;
     font-size: 15px;
-    margin-top: -40px;
     align-items: center;
-    margin-left: -120px;
     justify-content: center;
     background-color: #fff;
     padding: 15px;
@@ -586,7 +584,7 @@ h1 {
 .btn-agree {
     color: #fff;
     background-color: #0053bf;
-    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.2);
     margin-top: 15px;
     font-size: 15px;
     font-family: 'Noto Sans KR', sans-serif;
@@ -594,4 +592,97 @@ h1 {
     border-radius: 4px;
     float: right;
     cursor: pointer;
+}
+
+.date-modal {
+    position: fixed;
+    top: 220px;
+    left: 15px;
+    z-index: 9999;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.3);
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.modal-show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-show h4 {
+    margin: 5px;
+    color: #4f4f4f;
+}
+
+.modal-show button {
+    display: inline-block;
+    height: 25px;
+    margin-left: 5px;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    background-color: #193B84;
+    font-family: 'Noto Sans KR', sans-serif;
+    cursor: pointer;
+}
+
+.modal-hidden {
+    display: none;
+    border-top: dashed 1px #b7b7b7;
+    margin-top: 10px;
+}
+
+.birth {
+    color: #193B84;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.day-ref {
+    color: #a0a0a0;
+    font-size: 10px;
+    margin: 5px auto 0;
+    text-align: center;
+}
+
+.day {
+    text-align: center;
+    font-size: 20px;
+    color: #7171ff;
+    margin: 0 auto;
+}
+
+.birth-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    text-align: center;
+    border: solid 2px;
+    border-color: #b7b7b7;
+    border-radius: 5px;
+    height: 30px;
+    margin-top: 5px;
+}
+
+.birth-submit {
+    display: block;
+    width: 100%;
+    height: 30px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #7171FF;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.modal-hidden p {
+    color: #a0a0a0;
+    font-size: 10px;
+    margin: 5px auto 0;
+    text-align: center;
 }

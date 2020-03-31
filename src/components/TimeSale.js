@@ -55,11 +55,11 @@ useEffect(() => {
   return (
     <>
         <section>
-            <div className="timesale-section">
+            <div className="head-section">
 				<h1>
 					#타임세일
 				</h1>
-				<h3 className="timesale-section-text">
+				<h3 className="head-section-text">
 					특정 시간에 맞춰 마스크를 구매해보세요!
 				</h3>
             </div>

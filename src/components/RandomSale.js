@@ -13,11 +13,11 @@ useEffect(() => {
   return (
     <>
         <section>
-            <div className="timesale-section">
+            <div className="head-section">
             <h1>
                 #랜덤세일
             </h1>
-            <h3 className="timesale-section-text">
+            <h3 className="head-section-text">
                 게릴라로 판매하는 마스크를 구매해보세요!
             </h3>
             </div>
