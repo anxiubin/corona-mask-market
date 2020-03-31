@@ -199,8 +199,10 @@ function OfficialSale() {
                         내 주변 공적 마스크 판매처에서 마스크를 구매해보세요!
             </h3>
             </div>
+            
             <div className="kakao-map-wrap">
                 <div id="kakao-map">
+                <div className="backbox"></div>
                 </div>
             </div>
             <MapModal />

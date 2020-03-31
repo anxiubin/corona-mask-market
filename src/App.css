@@ -551,14 +551,26 @@ h1 {
 }
 
 
+.backbox {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
 .map-modal {
     position: fixed;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #000;
-    max-width: 600px;
-    min-height: 250px;
+    width: 510px;
+    height: 320px;
+    /*translate 효과 줬을때 max,min으로 크기 설정하면 
+    텍스트가 blur처리됨. 아직 해결법 못찾음*/
     z-index: 9999;
     font-size: 15px;
     align-items: center;
@@ -566,6 +578,7 @@ h1 {
     background-color: #fff;
     padding: 15px;
     font-family: 'Noto Sans KR', sans-serif;
+    border-radius: 10px;
 }
 
 .modal-head {
@@ -577,7 +590,7 @@ h1 {
 }
 
 .modal-footer {
-    font-size: 10px;
+    font-size: 11px;
 
 }
 

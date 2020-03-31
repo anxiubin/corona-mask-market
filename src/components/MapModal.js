@@ -14,6 +14,7 @@ function MapModal() {
     const onClick_agree = () => {
         localStorage.setItem('LS_agreed', 'true');
         document.querySelector('.map-modal').style.display = "none";
+        document.querySelector('.backbox').style.display = "none";
     }
 
     const onClick_birth = () => {
@@ -77,7 +78,6 @@ function MapModal() {
                 <div>데이터 관련 문의: 한국정보화진흥원(maskdata@nia.or.kr)</div>
                 <button className="btn-agree" onClick={onClick_agree}>동의합니다</button>
             </div>
-
         </section>
 
         <section className="date-modal">
