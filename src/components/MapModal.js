@@ -6,6 +6,7 @@ function MapModal() {
     useEffect(() => {
         if(localStorage.getItem('LS_agreed') === 'true') {
             document.querySelector('.map-modal').style.display = "none";
+            document.querySelector('.backbox').style.display = "none";
         } else {
             localStorage.setItem('LS_agreed', 'false')
         }
