@@ -424,9 +424,9 @@ h1 {
     margin-right: 30px;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
-    background-image: url('https://shop-phinf.pstatic.net/20200229_15/1582909219683E9ts9_JPEG/20272608201821413_82454582.jpg');
     background-repeat: no-repeat;
-    background-size: 200px 200px;
+    background-size: cover;
+    flex: none;
 }
 
 .item-details {
@@ -505,7 +505,7 @@ h1 {
 }
 
 .kakao-map-wrap {
-    height: 80%;
+    height: 100%;
 }
 
 #kakao-map {
@@ -552,18 +552,46 @@ h1 {
 
 
 .map-modal {
+    position: fixed;
     top: 50%;
     left: 50%;
-    color: #fff;
-    width: 240px;
-    height: 80px;
-    display: flex;
+    transform: translate(-25%, -25%);
+    color: #000;
+    max-width: 600px;
+    min-height: 250px;
     z-index: 9999;
-    position: fixed;
     font-size: 15px;
     margin-top: -40px;
     align-items: center;
     margin-left: -120px;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: #fff;
+    padding: 15px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.modal-head {
+    font-size: 20px;
+}
+
+.modal-contents {
+    font-size: 13px;
+}
+
+.modal-footer {
+    font-size: 10px;
+
+}
+
+.btn-agree {
+    color: #fff;
+    background-color: #0053bf;
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.15);
+    margin-top: 15px;
+    font-size: 15px;
+    font-family: 'Noto Sans KR', sans-serif;
+    border: none;
+    border-radius: 4px;
+    float: right;
+    cursor: pointer;
 }

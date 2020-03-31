@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-
+import MapModal from './MapModal'
 
 
 function OfficialSale() {
@@ -182,24 +182,28 @@ function OfficialSale() {
 
         }
         
-    },[map,lat,lng])    
+    },[map,lat,lng]);
+
+    
+    
     
 
     return (
         <React.Fragment>
-                <div className="officialsale-section">
-                    <h1>
-                        #공적 마스크 판매
-                </h1>
+            <div className="officialsale-section">
+                <h1>
+                    #공적 마스크 판매
+            </h1>
 
-                    <h3 className="officialsale-section-text">
+                <h3 className="officialsale-section-text">
                         내 주변 공적 마스크 판매처에서 마스크를 구매해보세요!
-                </h3>
-                </div>
+            </h3>
+            </div>
             <div className="kakao-map-wrap">
                 <div id="kakao-map">
                 </div>
             </div>
+            <MapModal />
         </React.Fragment>
     );
 }
