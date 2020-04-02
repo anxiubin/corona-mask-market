@@ -1,0 +1,25 @@
+[debug] [2020-04-02T08:08:20.359Z] ----------------------------------------------------------------------
+[debug] [2020-04-02T08:08:20.362Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\tnqls\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-04-02T08:08:20.362Z] CLI Version:   8.0.0
+[debug] [2020-04-02T08:08:20.362Z] Platform:      win32
+[debug] [2020-04-02T08:08:20.362Z] Node Version:  v12.13.0
+[debug] [2020-04-02T08:08:20.365Z] Time:          Thu Apr 02 2020 17:08:20 GMT+0900 (GMT+09:00)
+[debug] [2020-04-02T08:08:20.365Z] ----------------------------------------------------------------------
+[debug] [2020-04-02T08:08:20.365Z] 
+[debug] [2020-04-02T08:08:20.376Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-04-02T08:08:20.377Z] > authorizing via signed-in user
+[debug] [2020-04-02T08:08:20.378Z] [iam] checking project corona-mask-market-300fc for permissions ["firebase.projects.get"]
+[debug] [2020-04-02T08:08:20.384Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/corona-mask-market-300fc:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-04-02T08:08:21.339Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Thu, 02 Apr 2020 08:08:15 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=660","alt-svc":"quic=\":443\"; ma=2592000; v=\"46,43\",h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-04-02T08:08:21.341Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/corona-mask-market-300fc  
+ 
+[debug] [2020-04-02T08:08:21.963Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Thu, 02 Apr 2020 08:08:16 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"quic=\":443\"; ma=2592000; v=\"46,43\",h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Serving from 'C:\Users\tnqls\Desktop\toy-project\corona-mask-market'...
+[info] 
+[debug] [2020-04-02T08:08:21.969Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/corona-mask-market-300fc/webApps/-/config  
+ 
+[debug] [2020-04-02T08:08:23.307Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Thu, 02 Apr 2020 08:08:17 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"quic=\":443\"; ma=2592000; v=\"46,43\",h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting: Serving hosting files from: build
+[info] +  hosting: Local server: http://localhost:5000

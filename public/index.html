@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="코로나 마스크 판매 사이트 모아보기">
   <meta name="author" content="Subin Ahn">
   <meta property="og:type" content="website">
@@ -34,6 +34,31 @@
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
+
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-analytics.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "%FIREBASE_APP_KEY%",
+      authDomain: "corona-mask-market-300fc.firebaseapp.com",
+      databaseURL: "https://corona-mask-market-300fc.firebaseio.com",
+      projectId: "corona-mask-market-300fc",
+      storageBucket: "corona-mask-market-300fc.appspot.com",
+      messagingSenderId: "177350093246",
+      appId: "1:177350093246:web:8cd93da6bc0e15832931ef",
+      measurementId: "G-69YYFZ3RYB"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
 
 </body>
 
