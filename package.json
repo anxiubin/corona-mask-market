@@ -44,6 +44,5 @@
     },
     "devDependencies": {
         "gh-pages": "^2.2.0"
-    },
-    "homepage": "https://anxiubin.github.io/corona-mask-market/"
+    }
 }
