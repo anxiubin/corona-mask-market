@@ -27,8 +27,9 @@ useEffect(() => {
             img={item.image.slice(5,-2)} 
             price={item.price} 
             name={item.name}
-			link={item.link}
-            sub={item.sub}>
+			      link={item.link}
+            sub={item.sub}
+            key={item.name+item.sub}>
           </MaskTemplate>
         ))
         }

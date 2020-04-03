@@ -70,8 +70,9 @@ useEffect(() => {
             price={item.price} 
             name={item.name}
             time={item.time}
-			link={item.link}
-			sub={null}>
+			      link={item.link}
+			      sub={null}
+            key={item.name+item.time}>
           </MaskTemplate>
         ))
         }
