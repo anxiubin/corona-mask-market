@@ -95,7 +95,7 @@ function MapModal() {
                     출생연도
                 </div>
                 
-                <input className="birth-input" type="text" placeholder="ex)1993" maxLength="4" />
+                <input className="birth-input" type="text" placeholder="ex)1993" maxlength="4" />
                 <button className="birth-submit" onClick={onClick_submit}>제출</button>
                 <p>*마스크 5부제를 위한 정보수집입니다.</p>
             </div>
