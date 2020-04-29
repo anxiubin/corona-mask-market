@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { fire } from './FirebaseInit';
 import Home from './components/Home';
 import TimeSale from './components/TimeSale';
 import RandomSale from './components/RandomSale';
@@ -11,6 +12,7 @@ import {DataProvider} from './DataContext';
 
 
 function App() {
+    fire();
   return (
     <BrowserRouter>
         <DataProvider>

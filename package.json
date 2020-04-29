@@ -6,9 +6,11 @@
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
         "@testing-library/user-event": "^7.1.2",
+        "@toast-ui/react-chart": "^1.0.2",
         "axios": "^0.19.2",
         "cors": "^2.8.5",
         "dotenv": "^8.2.0",
+        "firebase": "^7.14.2",
         "immer": "^6.0.2",
         "node-sass": "^4.13.1",
         "react": "^16.13.0",
@@ -17,7 +19,8 @@
         "react-router-dom": "^5.1.2",
         "react-scripts": "3.4.0",
         "react-spring": "^8.0.27",
-        "styled-components": "^5.0.1"
+        "styled-components": "^5.0.1",
+        "tui-chart": "^3.11.2"
     },
     "scripts": {
         "start": "react-scripts start",
