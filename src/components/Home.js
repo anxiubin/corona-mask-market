@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import LocalInfections from './LocalInfections';
+import KoreaMap from './KoreaMap';
 import { useDataState } from '../DataContext';
+
 
 function Home() {
 
@@ -60,7 +62,8 @@ function Home() {
         }
         return () => clearTimeout(runCounter);
     }, [falseNum, data]);
- 
+
+
     return (
         <div>
             <section>
@@ -97,6 +100,7 @@ function Home() {
                     </div>
                 </div>
                 <div className="map">
+                    <KoreaMap />
                     <LocalInfections />
                 </div>
             </section>
