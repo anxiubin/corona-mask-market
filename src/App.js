@@ -9,7 +9,9 @@ import CheerKR from './components/CheerKR';
 import {BrowserRouter} from 'react-router-dom';
 import {Route, Link} from 'react-router-dom';
 import {DataProvider} from './DataContext';
-
+import { AiFillGithub } from "react-icons/ai";
+import { MdMail } from "react-icons/md";
+import { IconContext } from "react-icons";
 
 function App() {
     fire();
@@ -46,7 +48,24 @@ function App() {
             <Route path="/OfficialSale" component={OfficialSale} />
             <Route path="/CheerKR" component={CheerKR} />
 
-            <footer className="footer">subin</footer>
+            <footer>
+                <div className="footer-container">
+                    <p className="footer-icons">
+                        <a href="https://github.com/anxiubin/corona-mask-market" rel="noopener noreferrer" target="_blank">
+                        <IconContext.Provider value={{ color: "black", size: 20}}>
+                            <AiFillGithub />
+                        </IconContext.Provider>
+                        </a>
+                        <a href="a.tnqls0120@gmail.com" target="_blank">
+                        <IconContext.Provider value={{ color: "black", size: 20}}>
+                        <MdMail />
+                        
+                        </IconContext.Provider>
+                            </a>
+                    </p>
+                    <p className="footer-copyright">© 2020  Subin Ahn</p>
+                </div>
+            </footer>
         </DataProvider>
     </BrowserRouter>
   );

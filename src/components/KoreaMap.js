@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useLocalDataState } from '../DataContext';
 import {MapChart} from '@toast-ui/react-chart';
 import TuiChart from 'tui-chart';
@@ -23,21 +23,25 @@ function KoreaMap() {
         }
     });
 
-
     mapData.series = mapDataArr;
-    console.log(mapDataArr)
+
+ 
 
 
     const mapOptions = {
         chart: {
             width: 600,
             height: 750,
-            title: '시도별 확진자 현황'
+            title: {
+                text: '시도별 확진자 현황',
+                align: 'center',
+                offsetY: 30
+            }
         },
         map: 'south-korea',
         legend: {
-            align: 'right'
-        }
+            align: 'center'
+        },
     };
     var myTheme = {
         series: {

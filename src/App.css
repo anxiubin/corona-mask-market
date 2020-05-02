@@ -102,11 +102,32 @@ a:link,
     opacity: 1;
 }
 
-.footer {
-    background-color: #dbdbdb;
+footer {
+    background-color: #F8F8F8;
     margin-top: auto !important;
+    text-align: center;
+    position: relative;
+    border-top: 1px solid #DBDBDB;
 }
 
+.footer-container {
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container a {
+    color: #fff;
+    margin: 0 10px;
+}
+
+.footer-icons {
+    text-align: center;
+}
+
+.footer-copyright {
+    color: #939393;
+    font-size: 15px;
+}
 
 
 /** HOME COMPONENT **/
@@ -189,25 +210,29 @@ h1 {
 .map {
     display: inline-block;
     position: relative;
-    width: 500px;
-    height: 700px;
+    width: 600px;
+    height: 750px;
     background-image: url(./korea-map.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 500px 700px;
-    margin-top: 10px;
+    margin-top: 30px;
     font-family: 'Noto Sans KR', sans-serif;
 }
 
 .city-common {
     position: absolute;
-    display: inline-block;
-    border-radius: 50%;
+    height: 50px;
+    width: 45px;
+    font-size: 14px;
+    font-weight: bold;
     background-color: white;
     color: #494949;
     box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.15);
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .city-common:hover {
@@ -219,162 +244,105 @@ h1 {
     background-color: #c4ebff;
 }
 
-.cityname {
-    position: absolute;
-}
-
 .num {
     color: red;
     font-family: 'Lato', sans-serif;
-    position: absolute;
-    top: 20px;
 }
 
 .quarantine {
-    top: 20px;
-    left: 80px;
-    width: 65px;
-    height: 65px;
-    line-height: 50px;
+    top: 140px;
+    left: 60px;
+    background-color: #dddddd;
 }
 
 .seoul {
-    top: 135px;
-    left: 145px;
-    width: 85px;
-    height: 85px;
-    line-height: 65px;
+    top: 250px;
+    left: 155px;
 }
 
 .gyeonggi {
-    top: 43px;
-    left: 150px;
-    width: 90px;
-    height: 90px;
-    line-height: 70px;
+    top: 180px;
+    left: 140px;
 }
 
 .incheon {
-    top: 110px;
-    left: 90px;
-    width: 55px;
-    height: 55px;
-    line-height: 40px;
+    top: 230px;
+    left: 50px;
 }
 
 .gangwon {
-    top: 55px;
+    top: 200px;
     left: 250px;
-    width: 55px;
-    height: 55px;
-    line-height: 40px;
 }
 
 .chungnam {
-    top: 200px;
+    top: 360px;
     left: 90px;
-    width: 65px;
-    height: 65px;
-    line-height: 50px;
 }
 
 .chungbuk {
-    top: 170px;
-    left: 240px;
-    width: 55px;
-    height: 55px;
-    line-height: 40px;
+    top: 280px;
+    left: 210px;
 }
 
 .sejong {
-    top: 200px;
-    left: 190px;
-    width: 55px;
-    height: 55px;
-    line-height: 40px;
+    top: 320px;
+    left: 140px;
 }
 
 .daejeon {
-    top: 250px;
+    top: 350px;
     left: 195px;
-    width: 55px;
-    height: 55px;
-    line-height: 40px;
 }
 
 .jeonbuk {
-    top: 320px;
-    left: 130px;
-    width: 50px;
-    height: 50px;
-    line-height: 30px;
+    top: 430px;
+    left: 150px;
 }
 
 .jeonnam {
-    top: 440px;
-    left: 110px;
-    width: 50px;
-    height: 50px;
-    line-height: 30px;
+    top: 540px;
+    left: 90px;
 }
 
 .gwangju {
-    top: 380px;
-    left: 130px;
-    width: 55px;
-    height: 55px;
-    line-height: 30px;
+    top: 520px;
+    left: 150px;
 }
 
 .gyeongbuk {
-    top: 190px;
-    left: 340px;
-    width: 100px;
-    height: 100px;
-    line-height: 80px;
+    top: 320px;
+    left: 325px;
 }
 
 .gyeongnam {
-    top: 380px;
+    top: 480px;
     left: 240px;
-    width: 65px;
-    height: 65px;
-    line-height: 50px;
 }
 
 .daegu {
-    top: 255px;
-    left: 245px;
-    width: 120px;
-    height: 120px;
-    line-height: 100px;
+    top: 390px;
+    left: 310px;
 }
 
 .ulsan {
-    top: 340px;
-    left: 380px;
-    width: 60px;
-    height: 60px;
-    line-height: 40px;
+    top: 450px;
+    left: 360px;
 }
 
 .busan {
-    top: 380px;
+    top: 510px;
     left: 330px;
-    width: 65px;
-    height: 68px;
-    line-height: 50px;
 }
 
 .jeju {
-    top: 610px;
+    top: 640px;
     left: 90px;
-    width: 50px;
-    height: 50px;
-    line-height: 30px;
 }
 
-
+.tui-chart-series-custom-event-area {
+    display: none;
+}
 
 /** TIMESALE COMPONENT **/
 
