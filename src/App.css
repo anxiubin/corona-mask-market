@@ -161,7 +161,7 @@ h1 {
 }
 
 .infection-data {
-    margin-bottom: 100%;
+    margin-bottom: 160%;
 }
 
 .updatetime {
@@ -216,7 +216,7 @@ h1 {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 500px 700px;
-    margin-top: 30px;
+    margin: 50px 0 0 30px;
     font-family: 'Noto Sans KR', sans-serif;
 }
 

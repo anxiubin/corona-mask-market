@@ -40,19 +40,34 @@ function MapModal() {
         let day ='';
 
         switch(year.substring(3)) {
-            case '1' || '6':
+            case '1':
                 day = "월요일";
             break;
-            case '2' || '7':
+            case '6':
+                day = "월요일";
+            break;
+            case '2':
                 day = "화요일";
             break;
-            case '3' || '8':
+            case '7':
+                day = "화요일";
+            break;
+            case '3':
                 day = "수요일";
             break;
-            case '4' || '9':
+            case '8':
+                day = "수요일";
+            break;
+            case '4':
                 day = "목요일";
             break;
-            case '5' || '0':
+            case '9':
+                day = "목요일";
+            break;
+            case '5':
+                day = "금요일";
+            break;
+            case '0':
                 day = "금요일";
             break;
             default:
@@ -95,7 +110,7 @@ function MapModal() {
                     출생연도
                 </div>
                 
-                <input className="birth-input" type="text" placeholder="ex)1993" maxlength="4" />
+                <input className="birth-input" type="text" placeholder="ex)1993" maxLength="4" />
                 <button className="birth-submit" onClick={onClick_submit}>제출</button>
                 <p>*마스크 5부제를 위한 정보수집입니다.</p>
             </div>
