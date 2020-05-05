@@ -1,20 +1,31 @@
-# Corona Mask Market
-This website is published for people who want to buy masks to prevent Novel Coronavirus (2019-nCoV).
-It will show you some merchants that sell masks at lower than market prices.
+# 코로나 마스크 마켓 
+마스크 판매 사이트 모아보고, 국내 확진자 동향 확인하고, 공적 마스크 판매 약국 찾아보자!
 
-## Available Scripts
+## Corona Mask Market
+Let's find mask shopping sites, check the trends of confirmed cases in Korea, and look for pharmacies selling to prevent Novel Coronavirus (2019-nCoV).
 
-In the project directory, you can run:
 
-### `yarn start`
+### 💡 Motivation
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+코로나 바이러스(COVID19)로 인해 마스크를 구매하기 너무 어려워져서 만들게 됐습니다.
+저렴한 마스크 판매 사이트를 한 번에 모아볼 수 있도록 하고 싶었고, 
+공적 마스크를 판매하는 곳들을 지도에서 한 번에 보고 싶어서 만들게 된 
+**[ 코로나 마스크 마켓 ]** 웹서비스입니다.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `yarn test`
+### 📚 Stack
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React
+- JavaScript
+- Firebase
+- Node.js
+
+
+### 📄 Features
+
+- 저렴한 마스크 판매 사이트들을 크롤링하여 마스크 상품들 한 눈에 모아보기 가능
+- COVID19 확진자 데이터 API를 활용하여 국내 시도별 확진자 현황 파악 가능
+- 공적 마스크 판매 정보 API와 카카오 지도 API를 활용하여 약국별 마스크 재고 확인 가능
+- 마스크 5부제 시행으로 인한 마스크 구매 가능 요일 확인 가능
+- Firebase로 호스팅
+- 추후 Support 카테고리 업데이트 예정 (Firebase Realtime Database 활용)
