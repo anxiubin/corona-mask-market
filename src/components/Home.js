@@ -82,7 +82,7 @@ function Home() {
 			</section>
 			<section className="infection-wrap">
 				<div>
-					<div className="updatetime">{data.updateTime} 기준</div>
+					<div className="createTime">{data.createTime} 기준</div>
 					<div className="infection-data">
 						<div className="infection-true">
 							확진
