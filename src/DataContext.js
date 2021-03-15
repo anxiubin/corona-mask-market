@@ -1,5 +1,4 @@
 import React, { createContext, useContext } from "react"
-import axios from "axios"
 import dotenv from "dotenv"
 import { useState } from "react"
 import { useEffect } from "react"
