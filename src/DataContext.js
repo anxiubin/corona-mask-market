@@ -7,6 +7,24 @@ import produce from "immer"
 dotenv.config()
 
 const COVID_APIKEY = process.env.REACT_APP_COVID19_API_KEY
+
+function yyyymmdd(type, date) {
+	const today = date ? date : new Date()
+	const yesterday = new Date(today)
+	yesterday.setDate(yesterday.getDate() - 1)
+	const x = type === "today" ? today : yesterday
+	var y = x.getFullYear().toString()
+	var m = (x.getMonth() + 1).toString()
+	var d = x.getDate().toString()
+	d.length === 1 && (d = "0" + d)
+	m.length === 1 && (m = "0" + m)
+	var yyyymmdd = y + m + d
+	return yyyymmdd
+}
+
+const todayDate = yyyymmdd("today")
+const yesterdayDate = yyyymmdd("yesterday")
+
 const cities = [
 	{
 		id: "Seoul",
@@ -160,11 +178,11 @@ const LocalDataStateContext = createContext(null)
 
 //context API provider사용할 수 있는 컴포넌트
 export function DataProvider({ children }) {
-	const [state, setState] = useState({
+	const [total, setTotal] = useState({
 		confirmed: undefined,
 		dead: undefined,
 		deisolated: undefined,
-		updateTime: undefined,
+		createTime: undefined,
 	})
 
 	const [local, setLocal] = useState(cities)
@@ -183,29 +201,30 @@ export function DataProvider({ children }) {
 			"&" +
 			encodeURIComponent("startCreateDt") +
 			"=" +
-			encodeURIComponent("20210315")
+			encodeURIComponent(yesterdayDate)
 		queryParams +=
 			"&" +
 			encodeURIComponent("endCreateDt") +
 			"=" +
-			encodeURIComponent("20210315")
+			encodeURIComponent(todayDate)
 		xhr.open("GET", url + queryParams)
 		xhr.onreadystatechange = function () {
 			if (this.readyState === 4) {
-				var xml = this.responseXML
-				var regionsData = xml.getElementsByTagName("gubunEn")
-				var confirmedData = xml.getElementsByTagName("defCnt")
-				var deathData = xml.getElementsByTagName("deathCnt")
-				var deisolatedData = xml.getElementsByTagName("isolClearCnt")
-				var updateTimeData = xml.getElementsByTagName("createDt")
+				const xml = this.responseXML
+				const regionsData = xml.getElementsByTagName("gubunEn")
+				const confirmedData = xml.getElementsByTagName("defCnt")
+				const deathData = xml.getElementsByTagName("deathCnt")
+				const deisolatedData = xml.getElementsByTagName("isolClearCnt")
+				const createTimeData = xml.getElementsByTagName("createDt")
 
 				if (local[0].num === 0) {
-					for (var i = 0; i < regionsData.length; i++) {
-						var region = regionsData[i].childNodes[0].nodeValue
-						var confirmed = confirmedData[i].childNodes[0].nodeValue
-						var dead = deathData[i].childNodes[0].nodeValue
-						var deisolated = deisolatedData[i].childNodes[0].nodeValue
-						var updateTime = updateTimeData[i].childNodes[0].nodeValue
+					for (let i = 0; i <= 18; i++) {
+						const createTime = createTimeData[i].childNodes[0].nodeValue
+
+						const region = regionsData[i].childNodes[0].nodeValue
+						const confirmed = confirmedData[i].childNodes[0].nodeValue
+						const dead = deathData[i].childNodes[0].nodeValue
+						const deisolated = deisolatedData[i].childNodes[0].nodeValue
 
 						// eslint-disable-next-line no-loop-func
 						local.forEach((city, index) => {
@@ -216,25 +235,26 @@ export function DataProvider({ children }) {
 									})
 								)
 						})
-					}
-					if (region === "Total") {
-						setState({
-							...state,
-							confirmed,
-							dead,
-							deisolated,
-							updateTime,
-						})
+						if (region === "Total") {
+							setTotal({
+								...total,
+								confirmed,
+								dead,
+								deisolated,
+								createTime,
+							})
+						}
 					}
 				}
 			}
 		}
 
 		xhr.send("")
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
 	return (
-		<DataStateContext.Provider value={state}>
+		<DataStateContext.Provider value={total}>
 			<LocalDataStateContext.Provider value={local}>
 				{children}
 			</LocalDataStateContext.Provider>
