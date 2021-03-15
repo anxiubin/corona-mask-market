@@ -67,7 +67,7 @@ function OfficialSale() {
 		} else {
 			kakao.maps.event.addListener(map, "dragend", function () {
 				var level = map.getLevel()
-				console.log(level)
+				// console.log(level)
 				map.setLevel(level)
 
 				var latlng = map.getCenter()

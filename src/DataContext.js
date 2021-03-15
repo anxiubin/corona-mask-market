@@ -169,39 +169,6 @@ export function DataProvider({ children }) {
 
 	const [local, setLocal] = useState(cities)
 
-	//전국 확진자
-	// useEffect(() => {
-	// 	if (state.confirmed === undefined) {
-	// 		getCovid19Data("synthesize")
-	// 			.then((response) => {
-	// 				if (response.data.status.code === 200) {
-	// 					const updateTime = new Date(
-	// 						response.data.data[0].announced_timestamp * 1000
-	// 					)
-	// 					const dateString = updateTime.toLocaleString("ko-KR", {
-	// 						year: "numeric",
-	// 						month: "long",
-	// 						day: "numeric",
-	// 					})
-
-	// 					console.log("result", response.data)
-	// 					console.log("time", dateString)
-
-	// 					setState({
-	// 						...state,
-	// 						confirmed: response.data.data[0].confirmed,
-	// 						dead: response.data.data[0].dead,
-	// 						deisolated: response.data.data[0].deisolated,
-	// 						updateTime: dateString,
-	// 					})
-	// 				} else {
-	// 					console.log("There is an error")
-	// 				}
-	// 			})
-	// 			.catch((e) => console.error(e))
-	// 	}
-	// }, [])
-
 	// covid19 api 호출
 	useEffect(() => {
 		var xhr = new XMLHttpRequest()
