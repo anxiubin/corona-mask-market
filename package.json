@@ -1,51 +1,52 @@
 {
-    "name": "corona-mask-market",
-    "version": "0.1.0",
-    "private": true,
-    "dependencies": {
-        "@testing-library/jest-dom": "^4.2.4",
-        "@testing-library/react": "^9.3.2",
-        "@testing-library/user-event": "^7.1.2",
-        "@toast-ui/react-chart": "^1.0.2",
-        "axios": "^0.19.2",
-        "cors": "^2.8.5",
-        "dotenv": "^8.2.0",
-        "firebase": "^7.14.2",
-        "immer": "^6.0.2",
-        "node-sass": "^4.13.1",
-        "react": "^16.13.0",
-        "react-dom": "^16.13.0",
-        "react-icons": "^3.9.0",
-        "react-router-dom": "^5.1.2",
-        "react-scripts": "3.4.0",
-        "react-spring": "^8.0.27",
-        "styled-components": "^5.0.1",
-        "tui-chart": "^3.11.2"
-    },
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject",
-        "deploy": "gh-pages -d build",
-        "predeploy": "npm run build"
-    },
-    "eslintConfig": {
-        "extends": "react-app"
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
-    "devDependencies": {
-        "gh-pages": "^2.2.0"
-    }
+	"name": "corona-mask-market",
+	"version": "0.2.0",
+	"private": true,
+	"dependencies": {
+		"@testing-library/jest-dom": "^4.2.4",
+		"@testing-library/react": "^9.3.2",
+		"@testing-library/user-event": "^7.1.2",
+		"@toast-ui/react-chart": "^1.0.2",
+		"axios": "^0.21.1",
+		"cors": "^2.8.5",
+		"dotenv": "^8.2.0",
+		"firebase": "^7.14.2",
+		"immer": "^6.0.2",
+		"node-sass": "^4.13.1",
+		"react": "^16.13.0",
+		"react-dom": "^16.13.0",
+		"react-icons": "^3.9.0",
+		"react-router-dom": "^5.1.2",
+		"react-scripts": "3.4.0",
+		"react-spring": "^8.0.27",
+		"styled-components": "^5.0.1",
+		"tui-chart": "^3.11.2"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject",
+		"deploy": "gh-pages -d build",
+		"predeploy": "npm run build"
+	},
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"gh-pages": "^2.2.0"
+	},
+	"proxy": "http://openapi.data.go.kr/openapi/service/rest/Covid19"
 }
