@@ -11,7 +11,7 @@
 		"cors": "^2.8.5",
 		"dotenv": "^8.2.0",
 		"firebase": "^7.14.2",
-		"http-proxy-middleware": "^1.0.6",
+		"http-proxy-middleware": "^1.1.0",
 		"immer": "^6.0.2",
 		"node-sass": "^4.13.1",
 		"react": "^16.13.0",
@@ -48,6 +48,5 @@
 	},
 	"devDependencies": {
 		"gh-pages": "^2.2.0"
-	},
-	"proxy": "http://openapi.data.go.kr/openapi/service/rest/Covid19"
+	}
 }
