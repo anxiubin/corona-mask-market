@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from "react"
+import React, { createContext, useContext, useCallback } from "react"
 import dotenv from "dotenv"
 import { useState } from "react"
 import { useEffect } from "react"
@@ -188,6 +188,32 @@ export function DataProvider({ children }) {
 
 	const [local, setLocal] = useState(cities)
 
+	const handleSetData = useCallback(
+		(data) => {
+			const { gubunEn, defCnt, deathCnt, isolClearCnt, createDt } = data
+			if (gubunEn === "Total") {
+				setTotal({
+					...total,
+					confirmed: defCnt,
+					dead: deathCnt,
+					deisolated: isolClearCnt,
+					createTime: new Date(createDt).toLocaleString(),
+				})
+			} else {
+				local.forEach((city, idx) => {
+					setLocal(
+						produce((draft) => {
+							if (city.id === gubunEn) {
+								draft[idx].num = defCnt
+							}
+						})
+					)
+				})
+			}
+		},
+		[local, total, setTotal, setLocal]
+	)
+
 	// covid19 api 호출
 	useEffect(() => {
 		axios
@@ -202,27 +228,19 @@ export function DataProvider({ children }) {
 			})
 			.then(function (res) {
 				const dataArr = res.data.response.body.items.item
-				console.log(dataArr)
 				dataArr.forEach((data) => {
-					const { gubunEn, defCnt, deathCnt, isolClearCnt, createDt } = data
-					if (gubunEn === "Total") {
-						setTotal({
-							...total,
-							confirmed: defCnt,
-							dead: deathCnt,
-							deisolated: isolClearCnt,
-							createTime: new Date(createDt).toLocaleString(),
-						})
+					const { createDt } = data
+					const todayLocaleDate = new Date().toLocaleDateString()
+					const createDtLocaleDate = new Date(createDt).toLocaleDateString()
+
+					if (dataArr.length > 18) {
+						// 오늘 기준 데이터만 출력
+						if (todayLocaleDate === createDtLocaleDate) {
+							handleSetData(data)
+						}
 					} else {
-						local.forEach((city, index) => {
-							setLocal(
-								produce((draft) => {
-									if (city.id === gubunEn) {
-										draft[index].num = defCnt
-									}
-								})
-							)
-						})
+						// 데이터가 아직 오늘 날짜로 업데이트가 안된 경우에는 어제 기준 데이터 출력
+						handleSetData(data)
 					}
 				})
 			})
