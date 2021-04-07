@@ -1,8 +1,9 @@
-import React, { createContext, useContext } from "react"
+import React, { createContext, useContext, useCallback } from "react"
 import dotenv from "dotenv"
 import { useState } from "react"
 import { useEffect } from "react"
 import produce from "immer"
+import axios from "axios"
 
 dotenv.config()
 
@@ -187,69 +188,65 @@ export function DataProvider({ children }) {
 
 	const [local, setLocal] = useState(cities)
 
+	const handleSetData = useCallback(
+		(data) => {
+			const { gubunEn, defCnt, deathCnt, isolClearCnt, createDt } = data
+			if (gubunEn === "Total") {
+				setTotal({
+					...total,
+					confirmed: defCnt,
+					dead: deathCnt,
+					deisolated: isolClearCnt,
+					createTime: new Date(createDt).toLocaleString(),
+				})
+			} else {
+				local.forEach((city, idx) => {
+					setLocal(
+						produce((draft) => {
+							if (city.id === gubunEn) {
+								draft[idx].num = defCnt
+							}
+						})
+					)
+				})
+			}
+		},
+		[local, total, setTotal, setLocal]
+	)
+
 	// covid19 api 호출
 	useEffect(() => {
-		var xhr = new XMLHttpRequest()
-		var url = "/getCovid19SidoInfStateJson"
-		var queryParams =
-			"?" + encodeURIComponent("ServiceKey") + "=" + COVID_APIKEY
-		queryParams +=
-			"&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1")
-		queryParams +=
-			"&" + encodeURIComponent("numOfRows") + "=" + encodeURIComponent("10")
-		queryParams +=
-			"&" +
-			encodeURIComponent("startCreateDt") +
-			"=" +
-			encodeURIComponent(yesterdayDate)
-		queryParams +=
-			"&" +
-			encodeURIComponent("endCreateDt") +
-			"=" +
-			encodeURIComponent(todayDate)
-		xhr.open("GET", url + queryParams)
-		xhr.onreadystatechange = function () {
-			if (this.readyState === 4) {
-				const xml = this.responseXML
-				const regionsData = xml.getElementsByTagName("gubunEn")
-				const confirmedData = xml.getElementsByTagName("defCnt")
-				const deathData = xml.getElementsByTagName("deathCnt")
-				const deisolatedData = xml.getElementsByTagName("isolClearCnt")
-				const createTimeData = xml.getElementsByTagName("createDt")
+		axios
+			.get("/covid_api/getCovid19SidoInfStateJson", {
+				params: {
+					ServiceKey: COVID_APIKEY,
+					pageNo: 1,
+					numOfRows: 10,
+					startCreateDt: yesterdayDate,
+					endCreateDt: todayDate,
+				},
+			})
+			.then(function (res) {
+				const dataArr = res.data.response.body.items.item
+				dataArr.forEach((data) => {
+					const { createDt } = data
+					const todayLocaleDate = new Date().toLocaleDateString()
+					const createDtLocaleDate = new Date(createDt).toLocaleDateString()
 
-				if (local[0].num === 0) {
-					for (let i = 0; i <= 18; i++) {
-						const createTime = createTimeData[i].childNodes[0].nodeValue
-
-						const region = regionsData[i].childNodes[0].nodeValue
-						const confirmed = confirmedData[i].childNodes[0].nodeValue
-						const dead = deathData[i].childNodes[0].nodeValue
-						const deisolated = deisolatedData[i].childNodes[0].nodeValue
-
-						// eslint-disable-next-line no-loop-func
-						local.forEach((city, index) => {
-							if (city.id === region)
-								setLocal(
-									produce((draft) => {
-										draft[index].num = confirmed
-									})
-								)
-						})
-						if (region === "Total") {
-							setTotal({
-								...total,
-								confirmed,
-								dead,
-								deisolated,
-								createTime,
-							})
+					if (dataArr.length > 18) {
+						// 오늘 기준 데이터만 출력
+						if (todayLocaleDate === createDtLocaleDate) {
+							handleSetData(data)
 						}
+					} else {
+						// 데이터가 아직 오늘 날짜로 업데이트가 안된 경우에는 어제 기준 데이터 출력
+						handleSetData(data)
 					}
-				}
-			}
-		}
-
-		xhr.send("")
+				})
+			})
+			.catch(function (error) {
+				console.log(error)
+			})
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
