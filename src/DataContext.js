@@ -1,30 +1,8 @@
 import React, { createContext, useContext, useCallback } from "react"
-import dotenv from "dotenv"
 import { useState } from "react"
 import { useEffect } from "react"
 import produce from "immer"
 import axios from "axios"
-
-dotenv.config()
-
-const COVID_APIKEY = process.env.REACT_APP_COVID19_API_KEY
-
-function yyyymmdd(type, date) {
-	const today = date ? date : new Date()
-	const yesterday = new Date(today)
-	yesterday.setDate(yesterday.getDate() - 1)
-	const x = type === "today" ? today : yesterday
-	var y = x.getFullYear().toString()
-	var m = (x.getMonth() + 1).toString()
-	var d = x.getDate().toString()
-	d.length === 1 && (d = "0" + d)
-	m.length === 1 && (m = "0" + m)
-	var yyyymmdd = y + m + d
-	return yyyymmdd
-}
-
-const todayDate = yyyymmdd("today")
-const yesterdayDate = yyyymmdd("yesterday")
 
 const cities = [
 	{
@@ -188,6 +166,23 @@ export function DataProvider({ children }) {
 
 	const [local, setLocal] = useState(cities)
 
+	function yyyymmdd(type, date) {
+		const today = date ? date : new Date()
+		let yesterday = new Date(today)
+		yesterday.setDate(yesterday.getDate() - 1)
+		const x = type === "today" ? today : yesterday
+		let y = x.getFullYear().toString()
+		let m = (x.getMonth() + 1).toString()
+		let d = x.getDate().toString()
+		d.length === 1 && (d = "0" + d)
+		m.length === 1 && (m = "0" + m)
+		let yyyymmdd = y + m + d
+		return yyyymmdd
+	}
+
+	const todayDate = yyyymmdd("today")
+	const yesterdayDate = yyyymmdd("yesterday")
+
 	const handleSetData = useCallback(
 		(data) => {
 			const { gubunEn, defCnt, deathCnt, isolClearCnt, createDt } = data
@@ -217,22 +212,17 @@ export function DataProvider({ children }) {
 	// covid19 api 호출
 	useEffect(() => {
 		axios
-			.get("/api/covid")
+			.get("/api/covid", {
+				params: {
+					startCreateDt: yesterdayDate,
+					endCreateDt: todayDate,
+				},
+			})
 			.then(function (res) {
-				const dataArr = res.data.items.item
+				const dataArr = res.data.items.item?.slice(0, 19)
+
 				dataArr.forEach((data) => {
-					const { createDt } = data
-					const todayLocaleDate = new Date().toLocaleDateString()
-					const createDtLocaleDate = new Date(createDt).toLocaleDateString()
-					if (dataArr.length > 18) {
-						// 오늘 기준 데이터만 출력
-						if (todayLocaleDate === createDtLocaleDate) {
-							handleSetData(data)
-						}
-					} else {
-						// 데이터가 아직 오늘 날짜로 업데이트가 안된 경우에는 어제 기준 데이터 출력
-						handleSetData(data)
-					}
+					handleSetData(data)
 				})
 			})
 			.catch(function (error) {
