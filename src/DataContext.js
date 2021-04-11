@@ -217,22 +217,13 @@ export function DataProvider({ children }) {
 	// covid19 api 호출
 	useEffect(() => {
 		axios
-			.get("/covid_api/getCovid19SidoInfStateJson", {
-				params: {
-					ServiceKey: COVID_APIKEY,
-					pageNo: 1,
-					numOfRows: 10,
-					startCreateDt: yesterdayDate,
-					endCreateDt: todayDate,
-				},
-			})
+			.get("/api/covid")
 			.then(function (res) {
-				const dataArr = res.data.response.body.items.item
+				const dataArr = res.data.items.item
 				dataArr.forEach((data) => {
 					const { createDt } = data
 					const todayLocaleDate = new Date().toLocaleDateString()
 					const createDtLocaleDate = new Date(createDt).toLocaleDateString()
-
 					if (dataArr.length > 18) {
 						// 오늘 기준 데이터만 출력
 						if (todayLocaleDate === createDtLocaleDate) {
