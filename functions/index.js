@@ -7,7 +7,7 @@ const app = express()
 const url =
 	"http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson"
 
-const currentPut = async (request) => {
+const getCovidData = async (request) => {
 	let response
 	try {
 		response = await axios.get(url, {
@@ -28,9 +28,7 @@ const currentPut = async (request) => {
 app.use(cors())
 
 app.get("/api/covid", (req, res) => {
-	currentPut(req).then((response) => {
-		res.header("Access-Control-Allow-Origin", "*")
-		res.header("Access-Control-Allow-Headers", "X-Requested-With")
+	getCovidData(req).then((response) => {
 		res.json(response.data.response.body)
 	})
 })
