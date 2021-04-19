@@ -212,12 +212,12 @@ export function DataProvider({ children }) {
 	// covid19 api 호출
 	useEffect(() => {
 		axios
-			.get("http://localhost:5000/api/covid", {
+			.get("/api/covid", {
 				params: {
 					pageNo: 1,
 					numOfRows: 10,
-					startCreateDt: "20210418",
-					endCreateDt: "20210419",
+					startCreateDt: yesterdayDate,
+					endCreateDt: todayDate,
 				},
 			})
 			.then(function (res) {

@@ -36,11 +36,6 @@ app.get("/api/covid", (req, res) => {
 	})
 })
 
-// 테스트용
-app.use("/api/data", function (req, res) {
-	res.json({ greeting: "Hello Heroku" })
-})
-
 app.listen(port)
 
 app.use(express.static(path.join(__dirname, "client/build")))
