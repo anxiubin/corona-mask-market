@@ -4,6 +4,12 @@ const cors = require("cors")
 const path = require("path")
 const app = express()
 const port = process.env.PORT || 5000
+const http = require("http")
+
+//heroku sleep 모드 방지
+setInterval(function () {
+	http.get("https://covid19-kr.herokuapp.com/")
+}, 600000)
 
 require("dotenv").config()
 
