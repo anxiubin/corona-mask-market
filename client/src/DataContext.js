@@ -214,6 +214,8 @@ export function DataProvider({ children }) {
 		axios
 			.get("/api/covid", {
 				params: {
+					pageNo: 1,
+					numOfRows: 10,
 					startCreateDt: yesterdayDate,
 					endCreateDt: todayDate,
 				},
