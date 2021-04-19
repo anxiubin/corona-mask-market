@@ -17,7 +17,7 @@ body {
 		sans-serif;
 }
 
-/** APP COMPONENT **/
+/** APP **/
 
 a:link,
 :visited {
@@ -125,7 +125,7 @@ footer {
 	font-size: 15px;
 }
 
-/** HOME COMPONENT **/
+/** HOME **/
 
 .home-img-section {
 	position: relative;
@@ -134,7 +134,7 @@ footer {
 	color: #fff;
 	text-align: center;
 	height: 200px;
-	background-image: url(./home-img.png);
+	background-image: url(./assets/home-img.png);
 	background-repeat: no-repeat;
 	background-position: right;
 	background-size: 200px 200px;
@@ -204,7 +204,7 @@ h1 {
 	position: relative;
 	width: 600px;
 	height: 750px;
-	background-image: url(./korea-map.png);
+	background-image: url(./assets/korea-map.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 500px 700px;
@@ -336,7 +336,7 @@ h1 {
 	display: none;
 }
 
-/** TIMESALE COMPONENT **/
+/** RANDOMSALE **/
 
 .head-section {
 	position: relative;
@@ -441,7 +441,7 @@ h1 {
 	background-color: #3d3d3d;
 }
 
-/* OFFICIALSALE COMPONENT*/
+/** OFFICIALSALE **/
 
 .officialsale-body {
 	height: 100%;
@@ -524,8 +524,6 @@ h1 {
 	color: #000;
 	width: 510px;
 	height: 320px;
-	/*translate 효과 줬을때 max,min으로 크기 설정하면 
-    텍스트가 blur처리됨. 아직 해결법 못찾음*/
 	z-index: 9999;
 	font-size: 15px;
 	align-items: center;
@@ -654,7 +652,7 @@ h1 {
 	text-align: center;
 }
 
-/* SUPPORT COMPONENT*/
+/** SUPPORT **/
 
 .waiting {
 	width: 100%;

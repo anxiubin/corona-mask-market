@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"
 import axios from "axios"
-import MapModal from "./MapModal"
+import TermsModal from "../components/TermsModal"
 
 function OfficialSale() {
 	const [kakao] = useState(window.kakao)
@@ -192,7 +192,7 @@ function OfficialSale() {
 					<div className="backbox"></div>
 				</div>
 			</div>
-			<MapModal />
+			<TermsModal />
 		</React.Fragment>
 	)
 }

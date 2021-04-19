@@ -1,6 +1,6 @@
 import React from "react"
-import MaskTemplate from "./MaskTemplate"
-import randomMaskJSON from "../randomMasks.json"
+import MaskTemplate from "../components/MaskTemplate"
+import randomMaskJSON from "../assets/randomMasks.json"
 
 function RandomSale() {
 	// useEffect(() => {
