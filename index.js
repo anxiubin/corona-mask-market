@@ -8,7 +8,7 @@ const http = require("http")
 
 //heroku sleep 모드 방지
 setInterval(function () {
-	http.get("https://covid19-kr.herokuapp.com/")
+	http.get("http://covid19-kr.herokuapp.com/")
 }, 600000)
 
 require("dotenv").config()
