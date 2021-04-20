@@ -6,10 +6,8 @@ function MaskTemplate({ img, price, name, time, link, sub }) {
 		window.open(url)
 	}
 
-	// console.log(img+link+sub);
-
 	return (
-		<section className="mask-section" key={img + link + sub}>
+		<section className="mask-section">
 			<div className="mask-wrap" onClick={() => onClick(link)} title="구매링크">
 				<div
 					className="mask-img"
