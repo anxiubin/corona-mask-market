@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from "react"
-import axios from "axios"
+// import axios from "axios"
 import TermsModal from "../components/TermsModal"
 
+const { kakao } = window
+
 function OfficialSale() {
-	const [kakao] = useState(window.kakao)
 	const [location, setLocation] = useState({
-		//useReducer 사용
 		lat: null,
 		lng: null,
 	})
@@ -13,48 +13,62 @@ function OfficialSale() {
 	const { lat, lng } = location
 	const [map, setMap] = useState(null)
 
-	useEffect(() => {
-		if (!lat && !lng) {
-			//내 위치 불러오기
-			const getLocation = () => {
-				if (navigator.geolocation) {
-					navigator.geolocation.getCurrentPosition(
-						(position) => {
-							const { coords } = position
-							const { latitude, longitude } = coords
-							setLocation({
-								...location,
-								lat: latitude,
-								lng: longitude,
-							})
-						},
-						() => {
-							console.log("내 위치를 불러올 수 없습니다.")
-						}
-					)
-				} else {
-					console.log("위치를 불러올 수 없습니다.")
+	const getLocation = () => {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(
+				(position) => {
+					const { coords } = position
+					const { latitude, longitude } = coords
+					setLocation({
+						...location,
+						lat: latitude,
+						lng: longitude,
+					})
+				},
+				() => {
+					console.log("내 위치를 불러올 수 없습니다.")
 				}
-			}
+			)
+		} else {
+			console.log("위치를 불러올 수 없습니다.")
+		}
+	}
+
+	// mount 될 때 Kakao map API 호출
+	useEffect(() => {
+		if (!window.kakao) {
+			const script = window.document.createElement("script")
+			script.type = "text/javascript"
+			script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.REACT_APP_KAKAOMAP_API_KEY}&autoload=false`
+			window.document.head.appendChild(script)
+		}
+	}, [])
+
+	useEffect(() => {
+		//내 위치 불러오기
+		if (!lat && !lng) {
 			getLocation()
 		}
 
+		//kakao map 세팅
 		if (!!!map && lat && lng) {
-			const mapContainer = document.getElementById("kakao-map"),
-				mapOption = {
-					center: new kakao.maps.LatLng(lat, lng),
-					level: 3,
-				}
+			kakao.maps.load(() => {
+				const mapContainer = document.getElementById("kakao-map"),
+					mapOption = {
+						center: new kakao.maps.LatLng(lat, lng),
+						level: 3,
+					}
 
-			// var map = new kakao.maps.Map(mapContainer, mapOption);
-			const mapNew = new kakao.maps.Map(mapContainer, mapOption)
+				// var map = new kakao.maps.Map(mapContainer, mapOption);
+				const mapNew = new kakao.maps.Map(mapContainer, mapOption)
 
-			const moveLatLng = new kakao.maps.LatLng(lat, lng)
-			mapNew.panTo(moveLatLng)
+				const moveLatLng = new kakao.maps.LatLng(lat, lng)
+				mapNew.panTo(moveLatLng)
 
-			const zoomControl = new kakao.maps.ZoomControl()
-			mapNew.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT)
-			setMap(mapNew)
+				const zoomControl = new kakao.maps.ZoomControl()
+				mapNew.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT)
+				setMap(mapNew)
+			})
 		}
 	}, [lat, lng, map])
 
@@ -83,7 +97,8 @@ function OfficialSale() {
 		}
 	}, [map])
 
-	//지도에 약국들 출력
+	/* 지도에 약국들 출력하는 기능 deprecated
+
 	useEffect(() => {
 		if (lat && lng) {
 			async function getShops() {
@@ -177,15 +192,7 @@ function OfficialSale() {
 		}
 	}, [map, lat, lng])
 
-	// mount 될 때 Kakao map API 호출
-	useEffect(() => {
-		if (window) {
-			const script = window.document.createElement("script")
-			script.type = "text/javascript"
-			script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.REACT_APP_KAKAOMAP_API_KEY}`
-			window.document.head.appendChild(script)
-		}
-	}, [])
+	*/
 
 	return (
 		<React.Fragment>

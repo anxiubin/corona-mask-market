@@ -3,10 +3,6 @@ import MaskTemplate from "../components/MaskTemplate"
 import randomMaskJSON from "../assets/randomMasks.json"
 
 function RandomSale() {
-	// useEffect(() => {
-	// 	console.log(randomMaskJSON)
-	// },[]);
-
 	return (
 		<>
 			<section>
@@ -17,8 +13,9 @@ function RandomSale() {
 					</h3>
 				</div>
 			</section>
-			{randomMaskJSON.map((item) => (
+			{randomMaskJSON.map((item, index) => (
 				<MaskTemplate
+					key={item.name + item.price + index}
 					img={item.image.slice(5, -2)}
 					price={item.price}
 					name={item.name}
