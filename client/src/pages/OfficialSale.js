@@ -16,7 +16,7 @@ function OfficialSale() {
 	useEffect(() => {
 		if (!lat && !lng) {
 			//내 위치 불러오기
-			const getLocation = (calback) => {
+			const getLocation = () => {
 				if (navigator.geolocation) {
 					navigator.geolocation.getCurrentPosition(
 						(position) => {
@@ -176,6 +176,16 @@ function OfficialSale() {
 			printShops()
 		}
 	}, [map, lat, lng])
+
+	// mount 될 때 Kakao map API 호출
+	useEffect(() => {
+		if (window) {
+			const script = window.document.createElement("script")
+			script.type = "text/javascript"
+			script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.REACT_APP_KAKAOMAP_API_KEY}`
+			window.document.head.appendChild(script)
+		}
+	}, [])
 
 	return (
 		<React.Fragment>
