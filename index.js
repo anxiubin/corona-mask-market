@@ -1,25 +1,24 @@
 const express = require("express")
 const axios = require("axios")
-const cors = require("cors")
 const path = require("path")
 const app = express()
 const port = process.env.PORT || 5000
 const http = require("http")
+
+require("dotenv").config()
 
 //heroku sleep 모드 방지
 setInterval(function () {
 	http.get("http://covid19-kr.herokuapp.com/")
 }, 600000)
 
-require("dotenv").config()
-
-const url =
+const covid_url =
 	"http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson"
 
 const getCovidData = async (request) => {
 	let response
 	try {
-		response = await axios.get(url, {
+		response = await axios.get(covid_url, {
 			params: {
 				ServiceKey: process.env.REACT_APP_COVID19_API_KEY, //Decoding key
 				pageNo: request.params.pageNo,
@@ -33,8 +32,6 @@ const getCovidData = async (request) => {
 	}
 	return response
 }
-
-app.use(cors())
 
 app.get("/api/covid", (req, res) => {
 	getCovidData(req).then((response) => {
