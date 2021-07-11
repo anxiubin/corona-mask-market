@@ -15,9 +15,17 @@ Let's find mask shopping sites, check the trends of confirmed cases in Korea, an
 
 ### 📚 Stack
 
-- React
-- JavaScript
-- Node.js
+Frontend
+
+- React, Context API, HTML, CSS, JavaScript
+
+Backend
+
+- Node.js, Express.js
+
+Deploy
+
+- Heroku
 
 ### 📄 Features
 
@@ -26,3 +34,11 @@ Let's find mask shopping sites, check the trends of confirmed cases in Korea, an
 - 추후 Support 카테고리 업데이트 예정
 - (deprecated) 마스크 5부제 시행으로 인한 마스크 구매 가능 요일 확인 가능
 - (deprecated) 공적 마스크 판매 정보 API와 카카오 지도 API를 활용하여 약국별 마스크 재고 확인 가능
+
+### 💻 Screenshots
+
+<img src="https://user-images.githubusercontent.com/51507260/125198884-c0a9dd80-e29e-11eb-9c4a-85cf8490f565.png" alt="corona mask market">
+
+<img src="https://user-images.githubusercontent.com/51507260/125198887-c3a4ce00-e29e-11eb-87c8-241fc4bd03a0.png" alt="corona mask market" style="margin-top: 20px; margin-bottom: 20px">
+
+<img src="https://user-images.githubusercontent.com/51507260/125198876-b4be1b80-e29e-11eb-9b10-2614e7c4a9e2.png" alt="corona mask market">
