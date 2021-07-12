@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
-import LocalInfections from "../components/LocalInfections"
-import KoreaMap from "../components/KoreaMap"
-import { useDataState } from "../DataContext"
+import LocalInfections from "./LocalInfections"
+import KoreaMap from "./KoreaMap"
+import { useDataState } from "../../DataContext"
 
 function Home() {
 	const data = useDataState()

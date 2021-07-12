@@ -1,7 +1,7 @@
 import React from "react"
 import { MdTimer } from "react-icons/md"
 
-function MaskTemplate({ img, price, name, time, link, sub }) {
+function Mask({ img, price, name, time, link, sub }) {
 	const onClick = (url) => {
 		window.open(url)
 	}
@@ -38,4 +38,4 @@ function MaskTemplate({ img, price, name, time, link, sub }) {
 		</section>
 	)
 }
-export default MaskTemplate
+export default Mask

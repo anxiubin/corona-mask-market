@@ -134,7 +134,7 @@ footer {
 	color: #fff;
 	text-align: center;
 	height: 200px;
-	background-image: url(./assets/home-img.png);
+	background-image: url(../assets/home-img.png);
 	background-repeat: no-repeat;
 	background-position: right;
 	background-size: 200px 200px;
@@ -204,7 +204,7 @@ h1 {
 	position: relative;
 	width: 600px;
 	height: 750px;
-	background-image: url(./assets/korea-map.png);
+	background-image: url(../assets/korea-map.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 500px 700px;

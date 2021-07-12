@@ -1,5 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from "react"
+import ReactDOM from "react-dom"
+import { BrowserRouter } from "react-router-dom"
+import Router from "./router"
+import { DataProvider } from "./DataContext"
 
-ReactDOM.render(<App />,document.getElementById('root'));
+import "./styles/styles.css"
+
+const App = () => (
+	<BrowserRouter>
+		<DataProvider>
+			<Router />
+		</DataProvider>
+	</BrowserRouter>
+)
+
+ReactDOM.render(<App />, document.getElementById("root"))

@@ -1,6 +1,6 @@
 import React from "react"
-import MaskTemplate from "../components/MaskTemplate"
-import randomMaskJSON from "../assets/randomMasks.json"
+import Mask from "./Mask"
+import randomMaskJSON from "../../assets/randomMasks.json"
 
 function RandomSale() {
 	return (
@@ -14,14 +14,14 @@ function RandomSale() {
 				</div>
 			</section>
 			{randomMaskJSON.map((item, index) => (
-				<MaskTemplate
+				<Mask
 					key={item.name + item.price + index}
 					img={item.image.slice(5, -2)}
 					price={item.price}
 					name={item.name}
 					link={item.link}
 					sub={item.sub}
-				></MaskTemplate>
+				></Mask>
 			))}
 		</>
 	)

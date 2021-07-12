@@ -1,5 +1,5 @@
 import React from "react"
-import { useLocalDataState } from "../DataContext"
+import { useLocalDataState } from "../../../DataContext"
 
 function LocalInfections() {
 	const localData = useLocalDataState()
