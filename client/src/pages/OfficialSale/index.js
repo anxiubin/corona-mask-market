@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"
 // import axios from "axios"
-import TermsModal from "../components/TermsModal"
+import TermsModal from "./TermsModal"
 
 const { kakao } = window
 

@@ -1,15 +1,17 @@
 {
 	"name": "covid19-kr-server",
 	"scripts": {
-		"start": "nodemon index.js",
+		"start": "nodemon server/index.js",
 		"dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
-		"dev:server": "npm start",
+		"dev:server": "cd server && npm start",
 		"dev:client": "cd client && npm run build && npm start",
 		"heroku-postbuild": "cd client && npm install && npm run build"
 	},
 	"dependencies": {
 		"axios": "^0.21.1",
 		"concurrently": "^6.0.2",
+		"cookie-parser": "^1.4.5",
+		"cors": "^2.8.5",
 		"dotenv": "^8.2.0",
 		"express": "^4.17.1",
 		"nodemon": "^2.0.7"

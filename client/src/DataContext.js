@@ -19,8 +19,7 @@ const cities = [
 		idToast: "KR-GG",
 		num: 0,
 		todayNum: 0,
-		url:
-			"https://www.gg.go.kr/bbs/boardView.do?bsIdx=464&bIdx=2296956&menuId=1535",
+		url: "https://www.gg.go.kr/bbs/boardView.do?bsIdx=464&bIdx=2296956&menuId=1535",
 	},
 	{
 		id: "Incheon",
@@ -147,8 +146,7 @@ const cities = [
 		idKR: "검역",
 		num: 0,
 		todayNum: 0,
-		url:
-			"http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=13&ncvContSeq=&contSeq=&board_id=&gubun=",
+		url: "http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=13&ncvContSeq=&contSeq=&board_id=&gubun=",
 	},
 ]
 
@@ -212,7 +210,7 @@ export function DataProvider({ children }) {
 	// covid19 api 호출
 	useEffect(() => {
 		axios
-			.get("/api/covid", {
+			.get("/api/covid/statistics", {
 				params: {
 					pageNo: 1,
 					numOfRows: 10,
