@@ -1,16 +1,7 @@
 const express = require("express")
 const axios = require("axios")
-const path = require("path")
-const app = express()
-const port = process.env.PORT || 5000
-const http = require("http")
-
+const router = express.Router()
 require("dotenv").config()
-
-//heroku sleep 모드 방지
-setInterval(function () {
-	http.get("http://covid19-kr.herokuapp.com/")
-}, 600000)
 
 const covid_url =
 	"http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson"
@@ -33,18 +24,10 @@ const getCovidData = async (request) => {
 	return response
 }
 
-app.get("/api/covid", (req, res) => {
+router.get("/statistics", (req, res) => {
 	getCovidData(req).then((response) => {
 		res.json(response.data.response.body)
 	})
 })
 
-app.listen(port)
-
-app.use(express.static(path.join(__dirname, "client/build")))
-
-app.get("*", (req, res) => {
-	res.sendFile(path.join(__dirname + "/client/build/index.html"))
-})
-
-console.log(`server running at http ${port}`)
+module.exports = router
