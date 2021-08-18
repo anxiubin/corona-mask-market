@@ -10,7 +10,7 @@
 		"axios": "^0.21.1",
 		"dotenv": "^8.2.0",
 		"http-proxy-middleware": "^1.1.0",
-		"immer": "^6.0.2",
+		"immer": "^8.0.1",
 		"react": "^16.13.0",
 		"react-dom": "^16.13.0",
 		"react-icons": "^3.9.0",
