@@ -7,10 +7,10 @@ import "tui-chart/dist/maps/south-korea"
 function KoreaMap() {
 	const localData = useLocalDataState()
 
-	let mapData = {
+	const mapData = {
 		series: [],
 	}
-	let mapDataArr = []
+	const mapDataArr = []
 
 	localData.forEach((city) => {
 		if (city.idToast && city.num !== 0) {
@@ -38,7 +38,7 @@ function KoreaMap() {
 			align: "center",
 		},
 	}
-	var myTheme = {
+	const myTheme = {
 		series: {
 			startColor: "#FCE1E1",
 			endColor: "#DC3736",

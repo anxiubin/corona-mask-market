@@ -3,6 +3,8 @@ import { useState } from "react"
 import { useEffect } from "react"
 import produce from "immer"
 import axios from "axios"
+import getToday from "./utils/getToday"
+import getYesterday from "./utils/getYesterday"
 
 const cities = [
 	{
@@ -153,33 +155,18 @@ const cities = [
 const DataStateContext = createContext(null)
 const LocalDataStateContext = createContext(null)
 
-//context API provider사용할 수 있는 컴포넌트
 export function DataProvider({ children }) {
 	const [total, setTotal] = useState({
-		confirmed: undefined,
-		dead: undefined,
-		deisolated: undefined,
-		createTime: undefined,
+		confirmed: null,
+		dead: null,
+		deisolated: null,
+		createTime: null,
 	})
 
 	const [local, setLocal] = useState(cities)
 
-	function yyyymmdd(type, date) {
-		const today = date ? date : new Date()
-		let yesterday = new Date(today)
-		yesterday.setDate(yesterday.getDate() - 1)
-		const x = type === "today" ? today : yesterday
-		let y = x.getFullYear().toString()
-		let m = (x.getMonth() + 1).toString()
-		let d = x.getDate().toString()
-		d.length === 1 && (d = "0" + d)
-		m.length === 1 && (m = "0" + m)
-		let yyyymmdd = y + m + d
-		return yyyymmdd
-	}
-
-	const todayDate = yyyymmdd("today")
-	const yesterdayDate = yyyymmdd("yesterday")
+	const todayDate = getToday("today")
+	const yesterdayDate = getYesterday("yesterday")
 
 	const handleSetData = useCallback(
 		(data) => {
@@ -207,8 +194,7 @@ export function DataProvider({ children }) {
 		[local, total, setTotal, setLocal]
 	)
 
-	// covid19 api 호출
-	useEffect(() => {
+	const getCovid19Data = useCallback(() => {
 		axios
 			.get("/api/covid/statistics", {
 				params: {
@@ -228,6 +214,11 @@ export function DataProvider({ children }) {
 			.catch(function (error) {
 				console.log(error)
 			})
+	}, [yesterdayDate, todayDate, handleSetData])
+
+	// covid19 api 호출
+	useEffect(() => {
+		getCovid19Data()
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
