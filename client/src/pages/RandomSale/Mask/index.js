@@ -26,15 +26,6 @@ function Mask({ img, price, name, time, link, sub }) {
 					)}
 				</div>
 			</div>
-
-			{/* {timer !== '00h 00m 00s' ? 
-        <h2 className="item-timer">
-            <MdTimer /> {timer}
-        </h2> :
-        <h2 className="item-selling">
-            {itemText}
-        </h2>
-        } */}
 		</section>
 	)
 }

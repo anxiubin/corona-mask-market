@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useCallback } from "react"
 import LocalInfections from "./LocalInfections"
 import KoreaMap from "./KoreaMap"
 import { useDataState } from "../../DataContext"
@@ -10,68 +10,43 @@ function Home() {
 	const [deadNum, setDeadNum] = useState(0)
 	const [falseNum, setFalseNum] = useState(0)
 
-	//count up for infectionTrue
-	useEffect(() => {
+	let runTrueNumCounter, runDeadNumCounter, runFalseNumCounter
+
+	const handleCountUp = (type, num, timer, setter) => {
 		let diff
 		const counter = () => {
-			diff = data.confirmed - trueNum
-
+			diff = data[type] - num
 			if (diff > 0) {
-				setTrueNum((trueNum) => trueNum + Math.ceil(diff / 5))
+				setter((num) => num + Math.ceil(diff / 5))
 			}
 		}
 
-		let runCounter
-
-		if (trueNum < data.confirmed) {
-			runCounter = setTimeout(() => {
+		if (num < data[type]) {
+			timer = setTimeout(() => {
 				counter()
 			}, 10)
 		}
-		return () => clearTimeout(runCounter)
-	}, [trueNum, data])
+	}
+	//count up for infectionTrue
+	useEffect(() => {
+		handleCountUp("confirmed", trueNum, runTrueNumCounter, setTrueNum)
+		return () => clearTimeout(runTrueNumCounter)
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [trueNum, data, runTrueNumCounter])
 
 	//count up for infectionDead
 	useEffect(() => {
-		let diff
-		const counter = () => {
-			diff = data.dead - deadNum
-
-			if (diff > 0) {
-				setDeadNum((num) => num + Math.ceil(diff / 5))
-			}
-		}
-
-		let runCounter
-
-		if (deadNum < data.dead) {
-			runCounter = setTimeout(() => {
-				counter()
-			}, 10)
-		}
-		return () => clearTimeout(runCounter)
-	}, [deadNum, data])
+		handleCountUp("dead", deadNum, runDeadNumCounter, setDeadNum)
+		return () => clearTimeout(runDeadNumCounter)
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [deadNum, data, runDeadNumCounter])
 
 	//count up for infectionFalse
 	useEffect(() => {
-		let diff
-		const counter = () => {
-			diff = data.deisolated - falseNum
-
-			if (diff > 0) {
-				setFalseNum((falseNum) => falseNum + Math.ceil(diff / 5))
-			}
-		}
-
-		let runCounter
-
-		if (falseNum < data.deisolated) {
-			runCounter = setTimeout(() => {
-				counter()
-			}, 10)
-		}
-		return () => clearTimeout(runCounter)
-	}, [falseNum, data])
+		handleCountUp("deisolated", falseNum, runFalseNumCounter, setFalseNum)
+		return () => clearTimeout(runFalseNumCounter)
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [falseNum, data, runFalseNumCounter])
 
 	return (
 		<div>
